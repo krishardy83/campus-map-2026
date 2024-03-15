@@ -8664,7 +8664,13 @@ header.mainHeader .mainSearchBar .searchPagination .closeButton {
 
 .tabsContainer .tabContent {
     overflow-y: auto;
-    height: calc(100vh - 191px);
+    height: calc(100vh - 190px);
+}
+
+@media only screen and (max-width: 480px) {
+    .tabsContainer .tabContent  {
+        height: calc(100vh - 100px);
+    }
 }
 
 .tabsContainer .tab-content.tabContent > .tab-pane {
@@ -9156,11 +9162,11 @@ ul.toursList strong {
 
 #infoDrawer {
     font-family: 'Aptifer Sans LT W01', sans-serif;
-    height: 120%; /* 100% Full-height */
+    height: 100%; /* 100% Full-height */
     width: 401px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1001; /* Stay on top */
-    top: 0; /* Stay at the top */
+    top: 20px; /* Stay at the top */
     left: -100%;
     background-color: #FFFFFF; /* White*/
     padding-top: 70px; /* Place content 60px from the top */
@@ -9170,6 +9176,12 @@ ul.toursList strong {
 @media only screen and (max-width: 480px) {
     #infoDrawer {
         width: 100%;
+    }
+
+    #infoDrawerContent {
+        height: 100%;
+        overflow-y: auto;
+        padding-bottom: 16px;
     }
 }
 
