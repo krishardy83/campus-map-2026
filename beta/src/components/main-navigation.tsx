@@ -26,7 +26,7 @@ export default function MainNavigation() {
       )}
     >
       <img
-        src="/logo.svg"
+        src="/campus-map-dev/logo.svg"
         alt="Messiah Univerity Logo"
         width="236px"
         height="63px"
