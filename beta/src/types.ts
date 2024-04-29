@@ -1,0 +1,24 @@
+export type Entry = {
+  entry_id: string;
+  entry_title: string;
+  live: string;
+  category_name: string;
+  category_id: string;
+  location: string;
+  keywords: string;
+  description: string;
+  read_more_link: string;
+  virtual_tour_url: string;
+  image_1_required: string;
+  image_2_optional: string;
+  image_3_optional: string;
+  image_4_optional: string;
+  shortcut: string;
+  polyline_coordinates: string;
+  polygon_coordinates: string;
+  polyline_or_polygon_styling: string;
+  multiple_locations: string;
+  multiple_locations_new: string;
+  hide_from_search: string;
+  hide_category_expand: string;
+};

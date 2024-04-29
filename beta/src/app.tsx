@@ -1,3 +1,9 @@
+import MainNavigation from "./components/main-navigation";
+
 export default function App() {
-  return <p className="text-3xl font-bold">Hello World</p>;
+  return (
+    <main>
+      <MainNavigation />
+    </main>
+  );
 }
