@@ -36,14 +36,12 @@ export default function Root() {
         <button
           type="button"
           className={clsx(
-            "absolute right-0 text-sky-800 bg-white border border-gray-300 shadow-sm p-2 cursor-pointer top-6 transition-transform duration-300 ease-in-out",
-            { "translate-x-full rounded-r-md": !expanded },
-            { "rounded-l-md": expanded }
+            "absolute -right-12 text-gray-600 bg-white shadow-sm p-2.5 cursor-pointer top-0.5 rounded-sm transition-transform duration-300 ease-in-out"
           )}
           title={`${expanded ? "Hide" : "Show"} navigation`}
           onClick={() => setExpanded(!expanded)}
         >
-          <Icon name={expanded ? "shrink" : "enlarge"} className="w-6 h-6" />
+          <Icon name={expanded ? "shrink" : "enlarge"} className="w-5 h-5" />
         </button>
 
         <SearchForm />
