@@ -50,3 +50,13 @@ export function getCoverImageUrl(image?: string): string {
 export function getGoogleMapsUrl(coordinates: string): string {
   return `https://maps.google.com?saddr=Current+Location&daddr=${coordinates}`;
 }
+
+export function getCoordinates(coordinates?: string): { lat: number; lng: number } | null {
+  if (!coordinates || coordinates.length === 0) {
+    return null;
+  }
+
+  const [lat, lng] = coordinates.split(",").map(Number);
+
+  return { lat, lng };
+}
