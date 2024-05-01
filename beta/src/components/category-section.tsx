@@ -1,13 +1,14 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import type { Entry } from "../types";
 
 type Props = {
-  title: string;
+  category: string;
   entries: Entry[];
 };
 
-export default function CategorySection({ title, entries }: Props) {
+export default function CategorySection({ category, entries }: Props) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const ref = useRef<HTMLDetailsElement>(null);
 
   function handleClick() {
@@ -37,16 +38,18 @@ export default function CategorySection({ title, entries }: Props) {
         className="list-none text-sky-800 cursor-pointer py-3 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-md focus-visible:-outline-offset-2"
         onClick={handleClick}
       >
-        {title}
+        {category}
       </summary>
 
       <div className="pl-2">
         <button
           type="button"
+          onClick={() => setSearchParams(searchParams.get("markers") ? {} : { markers: category })}
           className="uppercase font-bold text-sm text-sky-800 px-2 mb-2 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-sm"
         >
-          Show all
+          {searchParams.get("markers") ? "Hide" : "Show"} all
         </button>
+
         <ul className="mb-4">
           {entries.map((entry) => (
             <li key={entry.entry_id}>

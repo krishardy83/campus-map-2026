@@ -1,5 +1,5 @@
 import { Map, Marker, useMap } from "@vis.gl/react-google-maps";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { getCoordinates, getEntryById } from "../lib/utils";
 import data from "../data.json";
 
@@ -11,10 +11,13 @@ const INITIAL_CAMERA = {
 export default function GoogleMap() {
   const { entryId } = useParams();
   const map = useMap();
-  const position = getCoordinates(getEntryById(data, entryId)?.location);
+  const [searchParams] = useSearchParams();
 
-  map?.setZoom(position ? 19 : INITIAL_CAMERA.zoom);
-  map?.setCenter(position || INITIAL_CAMERA.center);
+  const entry = getEntryById(data, entryId);
+  const markers = getCoordinates(data, entry?.location, searchParams.get("markers"));
+
+  map?.setZoom(markers.length === 1 ? 19 : INITIAL_CAMERA.zoom);
+  map?.setCenter(markers.length === 1 ? markers[0] : INITIAL_CAMERA.center);
 
   return (
     <Map
@@ -26,7 +29,9 @@ export default function GoogleMap() {
       zoomControl
       mapTypeId="satellite"
     >
-      {position ? <Marker position={position} /> : null}
+      {markers.map((marker) => (
+        <Marker position={marker} key={marker.lat + marker.lng + Math.random()} />
+      ))}
     </Map>
   );
 }

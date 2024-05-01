@@ -51,12 +51,28 @@ export function getGoogleMapsUrl(coordinates: string): string {
   return `https://maps.google.com?saddr=Current+Location&daddr=${coordinates}`;
 }
 
-export function getCoordinates(coordinates?: string): { lat: number; lng: number } | null {
-  if (!coordinates || coordinates.length === 0) {
-    return null;
+export function getCoordinates(
+  entries: Entry[],
+  coordinates?: string,
+  category?: string | null
+): { lat: number; lng: number }[] {
+  const coords = [];
+
+  if (category) {
+    const matches = getEntriesForCategory(category, entries);
+
+    coords.push(
+      ...matches.map((entry) => {
+        const [lat, lng] = entry.location.split(",").map(Number);
+
+        return { lat, lng };
+      })
+    );
+  } else if (coordinates && coordinates.length > 0) {
+    const [lat, lng] = coordinates.split(",").map(Number);
+
+    coords.push({ lat, lng });
   }
 
-  const [lat, lng] = coordinates.split(",").map(Number);
-
-  return { lat, lng };
+  return coords;
 }
