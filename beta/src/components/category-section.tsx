@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import type { Entry } from "../types";
 
 type Props = {
@@ -49,12 +50,12 @@ export default function CategorySection({ title, entries }: Props) {
         <ul className="mb-4">
           {entries.map((entry) => (
             <li key={entry.entry_id}>
-              <a
+              <Link
                 className="text-sky-800 text-sm block p-2 hover:bg-sky-100 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-md"
-                href={`/${entry.entry_id}`}
+                to={`/${entry.entry_id}`}
               >
                 {entry.entry_title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

@@ -14,6 +14,10 @@ export function getEntriesForCategory(category: string, entries: Entry[]): Entry
   return entries.filter((entry) => entry.category_name === category && entry.live === "1");
 }
 
+export function getEntryById(entries: Entry[], id?: string): Entry | undefined {
+  return entries.find((entry) => entry.entry_id === id);
+}
+
 export function getEntriesFromSearch(search: string, entries: Entry[]) {
   const searchable: (keyof Entry)[] = ["category_name", "keywords", "entry_title", "description"];
   const query = search.toLowerCase().trim();
@@ -33,4 +37,16 @@ export function getEntriesFromSearch(search: string, entries: Entry[]) {
 
     return match;
   });
+}
+
+export function getCoverImageUrl(image?: string): string {
+  if (image) {
+    return `http://www.messiah.edu/images/${image}`;
+  }
+
+  return "./images/location-image-placeholder.png";
+}
+
+export function getGoogleMapsUrl(coordinates: string): string {
+  return `https://maps.google.com?saddr=Current+Location&daddr=${coordinates}`;
 }

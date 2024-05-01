@@ -1,17 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Combobox } from "@headlessui/react";
 import clsx from "clsx";
 import data from "../data.json";
 import { getEntriesFromSearch } from "../lib/utils";
 
 export default function SearchForm() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const results = getEntriesFromSearch(query, data);
 
   return (
     <search>
       <form className="px-6 py-4 relative">
-        <Combobox>
+        <Combobox onChange={navigate}>
           <Combobox.Input
             type="search"
             placeholder="Search"

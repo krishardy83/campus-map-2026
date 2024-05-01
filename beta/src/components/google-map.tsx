@@ -1,14 +1,9 @@
-import { APIProvider, Map, Marker, useMap } from "@vis.gl/react-google-maps";
+import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
 const API_KEY = "AIzaSyDuK03Xp4KZdkHVHnsuV0Q46uVR5W7ECcU";
 
 function CustomMap() {
-  const map = useMap();
   const position = { lat: 40.157204, lng: -76.988973 };
-
-  if (!map) {
-    return null;
-  }
 
   return (
     <Map
@@ -25,12 +20,10 @@ function CustomMap() {
   );
 }
 
-function GoogleMap() {
+export default function GoogleMap() {
   return (
     <APIProvider apiKey={API_KEY}>
       <CustomMap />
     </APIProvider>
   );
 }
-
-export default GoogleMap;
