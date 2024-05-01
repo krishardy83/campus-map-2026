@@ -21,7 +21,7 @@ export default function MainNavigation() {
   return (
     <div
       className={clsx(
-        "w-full max-w-md h-dvh border-t-8 border-sky-800 py-6 flex flex-col relative transition-transform duration-300 ease-in-out",
+        "fixed bg-white z-10 w-full max-w-md h-dvh border-t-8 border-sky-800 py-6 flex flex-col transition-transform duration-300 ease-in-out",
         { "-translate-x-full": !expanded }
       )}
     >
@@ -36,7 +36,7 @@ export default function MainNavigation() {
       <button
         type="button"
         className={clsx(
-          "absolute right-0 text-sky-800 border border-gray-300 shadow-sm p-2 cursor-pointer top-6 transition-transform duration-300 ease-in-out",
+          "absolute right-0 text-sky-800 bg-white border border-gray-300 shadow-sm p-2 cursor-pointer top-6 transition-transform duration-300 ease-in-out",
           { "translate-x-full rounded-r-md": !expanded },
           { "rounded-l-md": expanded }
         )}
