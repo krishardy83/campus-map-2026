@@ -11,5 +11,26 @@ export function getCategories(entries: Entry[]): string[] {
 }
 
 export function getEntriesForCategory(category: string, entries: Entry[]): Entry[] {
-  return entries.filter((entry) => entry.category_name === category);
+  return entries.filter((entry) => entry.category_name === category && entry.live === "1");
+}
+
+export function getEntriesFromSearch(search: string, entries: Entry[]) {
+  const searchable: (keyof Entry)[] = ["category_name", "keywords", "entry_title", "description"];
+  const query = search.toLowerCase().trim();
+
+  if (query.length === 0) {
+    return entries;
+  }
+
+  return entries.filter((entry) => {
+    let match = false;
+
+    searchable.forEach((key) => {
+      if (entry[key].toLowerCase().includes(query)) {
+        match = true;
+      }
+    });
+
+    return match;
+  });
 }
