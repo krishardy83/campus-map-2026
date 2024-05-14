@@ -6,6 +6,7 @@ import { SIDEBAR_EXPANDED } from "../constants";
 import Icon from "../components/icon";
 import SearchForm from "../components/search-form";
 import { getBaseUrl } from "../lib/utils";
+import TopNavigation from "../components/top-navigation";
 
 export default function Root() {
   const [expanded, setExpanded] = useState(() => {
@@ -20,9 +21,11 @@ export default function Root() {
 
   return (
     <main>
+      <TopNavigation />
+
       <div
         className={clsx(
-          "fixed bg-white z-10 w-full max-w-md h-dvh border-t-8 border-sky-800 py-6 flex flex-col transition-transform duration-300 ease-in-out",
+          "fixed bg-white z-10 w-full max-w-md h-dvh before:h-3 before:bg-gradient-to-r before:from-primary before:to-secondary before:top-0 flex flex-col transition-transform duration-300 ease-in-out",
           { "-translate-x-full": !expanded }
         )}
       >
@@ -31,13 +34,13 @@ export default function Root() {
           alt="Messiah Univerity Logo"
           width="236px"
           height="63px"
-          className="ml-6 mb-6"
+          className="ml-6 my-6"
         />
 
         <button
           type="button"
           className={clsx(
-            "absolute -right-12 text-gray-600 bg-white shadow-sm p-2.5 cursor-pointer top-0.5 rounded-sm transition-transform duration-300 ease-in-out"
+            "absolute -right-12 text-gray-600 bg-white shadow-sm p-2.5 cursor-pointer top-2.5 rounded-sm transition-transform duration-300 ease-in-out"
           )}
           title={`${expanded ? "Hide" : "Show"} navigation`}
           onClick={() => setExpanded(!expanded)}
