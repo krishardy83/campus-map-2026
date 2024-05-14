@@ -1,5 +1,9 @@
 import type { Entry } from "../types";
 
+export function getBaseUrl(path: string): string {
+  return `${import.meta.env.BASE_URL}/${path}`;
+}
+
 export function getCategories(entries: Entry[]): string[] {
   return Array.from(
     new Set<string>(
@@ -44,7 +48,7 @@ export function getCoverImageUrl(image?: string): string {
     return `http://www.messiah.edu/images/${image}`;
   }
 
-  return "./images/location-image-placeholder.png";
+  return getBaseUrl("images/location-image-placeholder.png");
 }
 
 export function getGoogleMapsUrl(coordinates: string): string {

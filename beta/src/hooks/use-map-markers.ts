@@ -8,7 +8,7 @@ export default function useMapMarkers() {
 
   const category = searchParams.get("markers");
   const entry = getEntryById(data, entryId);
-  const coords = [];
+  const coords: { lat: number; lng: number; id: string }[] = [];
 
   if (category) {
     const matches = getEntriesForCategory(category, data);
@@ -17,13 +17,13 @@ export default function useMapMarkers() {
       ...matches.map((entry) => {
         const [lat, lng] = entry.location.split(",").map(Number);
 
-        return { lat, lng };
+        return { lat, lng, id: entry.entry_id };
       })
     );
   } else if (entry?.location && entry.location.length > 0) {
     const [lat, lng] = entry.location.split(",").map(Number);
 
-    coords.push({ lat, lng });
+    coords.push({ lat, lng, id: entry.entry_id });
   }
 
   return coords;

@@ -5,6 +5,7 @@ import GoogleMap from "../components/google-map";
 import { SIDEBAR_EXPANDED } from "../constants";
 import Icon from "../components/icon";
 import SearchForm from "../components/search-form";
+import { getBaseUrl } from "../lib/utils";
 
 export default function Root() {
   const [expanded, setExpanded] = useState(() => {
@@ -26,7 +27,7 @@ export default function Root() {
         )}
       >
         <img
-          src="/campus-map-dev/logo.svg"
+          src={getBaseUrl("logo.svg")}
           alt="Messiah Univerity Logo"
           width="236px"
           height="63px"

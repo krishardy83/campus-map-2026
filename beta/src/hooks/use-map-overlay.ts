@@ -1,4 +1,5 @@
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
+import { getBaseUrl } from "../lib/utils";
 
 const BOUNDS: { [key: number]: [[number, number], [number, number]] } = {
   15: [
@@ -44,7 +45,7 @@ export default function useMapOverlay() {
           return null;
         }
 
-        return `./campus-map-dev/tiles/${zoom}/tile_${coords.x}x${coords.y}-min.png`;
+        return getBaseUrl(`/tiles/${zoom}/tile_${coords.x}x${coords.y}-min.png`);
       },
       tileSize: new google.maps.Size(256, 256),
     });
