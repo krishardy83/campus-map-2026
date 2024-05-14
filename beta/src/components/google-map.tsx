@@ -1,7 +1,6 @@
 import { Map, Marker, useMap } from "@vis.gl/react-google-maps";
-import { useParams, useSearchParams } from "react-router-dom";
-import { getCoordinates, getEntryById } from "../lib/utils";
-import data from "../data.json";
+import useMapOverlay from "../hooks/use-map-overlay";
+import useMapMarkers from "../hooks/use-map-markers";
 
 const INITIAL_CAMERA = {
   center: { lat: 40.157204, lng: -76.988973 },
@@ -9,15 +8,13 @@ const INITIAL_CAMERA = {
 };
 
 export default function GoogleMap() {
-  const { entryId } = useParams();
   const map = useMap();
-  const [searchParams] = useSearchParams();
-
-  const entry = getEntryById(data, entryId);
-  const markers = getCoordinates(data, entry?.location, searchParams.get("markers"));
+  const overlay = useMapOverlay();
+  const markers = useMapMarkers();
 
   map?.setZoom(markers.length === 1 ? 19 : INITIAL_CAMERA.zoom);
   map?.setCenter(markers.length === 1 ? markers[0] : INITIAL_CAMERA.center);
+  map?.overlayMapTypes.push(overlay);
 
   return (
     <Map
