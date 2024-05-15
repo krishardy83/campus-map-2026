@@ -43,13 +43,25 @@ export default function CategorySection({ category, entries }: Props) {
   return (
     <details
       ref={ref}
-      className="px-6 border-t border-gray-200 transition-all ease-in-out duration-300 overflow-hidden h-[--height]"
+      className="px-6 border-t group border-gray-200 transition-all ease-in-out duration-300 overflow-hidden h-[--height]"
     >
       <summary
-        className="list-none text-sky-800 cursor-pointer py-3 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-md focus-visible:-outline-offset-2"
+        className="list-none flex items-center justify-between text-sky-800 cursor-pointer py-3 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-md focus-visible:-outline-offset-2"
         onClick={handleClick}
       >
         {category}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-5 h-5 group-open:rotate-180 transition-transform duration-300"
+        >
+          <path
+            fillRule="evenodd"
+            d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
+            clipRule="evenodd"
+          />
+        </svg>
       </summary>
 
       <div className="pl-2">
