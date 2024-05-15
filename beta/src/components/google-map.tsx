@@ -34,6 +34,7 @@ export default function GoogleMap() {
           position={marker}
           key={marker.lat + marker.lng + Math.random()}
           onClick={() => navigate(marker.id)}
+          title={marker.title}
         >
           <Pin scale={1.5} background="#00698B" borderColor="#fff" glyphColor="#fff">
             <svg
