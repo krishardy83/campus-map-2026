@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import type { Entry } from "../types";
 
@@ -39,6 +39,12 @@ export default function CategorySection({ category, entries }: Props) {
       });
     }
   }
+
+  useEffect(() => {
+    if (hasActiveMarker && ref.current) {
+      ref.current.setAttribute("open", "true");
+    }
+  }, [hasActiveMarker]);
 
   return (
     <details
