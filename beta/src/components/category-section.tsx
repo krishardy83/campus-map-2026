@@ -10,6 +10,17 @@ type Props = {
 export default function CategorySection({ category, entries }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const ref = useRef<HTMLDetailsElement>(null);
+  const hasActiveMarker = searchParams.getAll("marker").includes(category);
+
+  function handleToggleAll() {
+    const markers = searchParams.getAll("marker");
+
+    if (markers.includes(category)) {
+      setSearchParams({ marker: markers.filter((marker) => marker !== category) });
+    } else {
+      setSearchParams({ marker: [...markers, category] });
+    }
+  }
 
   function handleClick() {
     if (!ref.current) return;
@@ -44,10 +55,10 @@ export default function CategorySection({ category, entries }: Props) {
       <div className="pl-2">
         <button
           type="button"
-          onClick={() => setSearchParams(searchParams.get("markers") ? {} : { markers: category })}
+          onClick={handleToggleAll}
           className="uppercase font-bold text-sm text-sky-800 px-2 mb-2 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-sm"
         >
-          {searchParams.get("markers") ? "Hide" : "Show"} all
+          {hasActiveMarker ? "Hide" : "Show"} all
         </button>
 
         <ul className="mb-4">

@@ -6,20 +6,22 @@ export default function useMapMarkers() {
   const [searchParams] = useSearchParams();
   const { entryId } = useParams();
 
-  const category = searchParams.get("markers");
+  const categories = searchParams.getAll("marker");
   const entry = getEntryById(data, entryId);
   const coords: { lat: number; lng: number; id: string }[] = [];
 
-  if (category) {
-    const matches = getEntriesForCategory(category, data);
+  if (categories.length > 0) {
+    categories.forEach((category) => {
+      const matches = getEntriesForCategory(category, data);
 
-    coords.push(
-      ...matches.map((entry) => {
-        const [lat, lng] = entry.location.split(",").map(Number);
+      coords.push(
+        ...matches.map((entry) => {
+          const [lat, lng] = entry.location.split(",").map(Number);
 
-        return { lat, lng, id: entry.entry_id };
-      })
-    );
+          return { lat, lng, id: entry.entry_id };
+        })
+      );
+    });
   } else if (entry?.location && entry.location.length > 0) {
     const [lat, lng] = entry.location.split(",").map(Number);
 
