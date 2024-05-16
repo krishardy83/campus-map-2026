@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { getCoverImageUrl, getEntryById, getGoogleMapsUrl } from "../lib/utils";
+import { getCoverImageUrl, getEntryById, getGalleryImages, getGoogleMapsUrl } from "../lib/utils";
 import data from "../data.json";
 import Icon from "../components/icon";
+import Gallery from "../components/gallery";
 
 export default function Entry() {
   const { entryId } = useParams();
@@ -52,13 +53,7 @@ export default function Entry() {
         ) : null}
 
         {entry.image_2_optional ? (
-          <button
-            type="button"
-            className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-800 text-sky-800 text-sm transition-colors hover:bg-sky-100 px-4 rounded-md py-1"
-          >
-            <Icon name="images" className="w-8 h-8 mb-1" />
-            Photo Gallery
-          </button>
+          <Gallery title={entry.entry_title} images={getGalleryImages(entry)} />
         ) : null}
       </nav>
 

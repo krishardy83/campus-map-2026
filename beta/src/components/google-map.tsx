@@ -32,7 +32,7 @@ export default function GoogleMap() {
       {markers.map((marker) => (
         <AdvancedMarker
           position={marker}
-          key={marker.lat + marker.lng + Math.random()}
+          key={marker.id}
           onClick={() => navigate(marker.id)}
           title={marker.title}
         >
