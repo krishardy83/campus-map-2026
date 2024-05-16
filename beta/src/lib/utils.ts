@@ -54,3 +54,14 @@ export function getCoverImageUrl(image?: string): string {
 export function getGoogleMapsUrl(coordinates: string): string {
   return `https://maps.google.com?saddr=Current+Location&daddr=${coordinates}`;
 }
+
+export function getGalleryImages(entry: Entry): string[] {
+  const properties = [
+    "image_1_required",
+    "image_2_optional",
+    "image_3_optional",
+    "image_4_optional",
+  ] as const;
+
+  return properties.map((property) => entry[property]).filter((image) => image.length > 0);
+}
