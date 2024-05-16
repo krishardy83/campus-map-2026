@@ -6,7 +6,7 @@ export default function useMapMarkers() {
   const [searchParams] = useSearchParams();
   const { entryId } = useParams();
 
-  const categories = searchParams.getAll("marker");
+  const categories = searchParams.get("markers")?.split(",") || [];
   const entry = getEntryById(data, entryId);
   const coords: { lat: number; lng: number; id: string; title: string }[] = [];
 
