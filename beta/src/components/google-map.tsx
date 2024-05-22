@@ -16,7 +16,10 @@ export default function GoogleMap() {
 
   map?.setZoom(markers.length === 1 ? 19 : INITIAL_CAMERA.zoom);
   map?.setCenter(markers.length === 1 ? markers[0] : INITIAL_CAMERA.center);
-  map?.overlayMapTypes.push(overlay);
+
+  if (map?.overlayMapTypes.getLength() === 0) {
+    map?.overlayMapTypes.push(overlay);
+  }
 
   return (
     <Map
