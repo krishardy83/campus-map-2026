@@ -52,7 +52,7 @@ export default function CategorySection({ category, entries }: Props) {
         <button
           type="button"
           onClick={handleToggleAll}
-          className="uppercase font-bold text-sm text-sky-800 px-4 py-2 hover:bg-sky-100 outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-sky-800 rounded-sm w-full text-left transition-colors"
+          className="uppercase font-bold text-sm text-sky-800 px-4 py-2 hover:bg-sky-100 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-sky-800 rounded-md   w-full text-left transition-colors"
         >
           {hasActiveMarker ? "Hide" : "Show"} all
         </button>
@@ -61,7 +61,7 @@ export default function CategorySection({ category, entries }: Props) {
           {entries.map((entry) => (
             <li key={entry.entry_id}>
               <Link
-                className="text-sky-800 text-sm block px-4 py-2 hover:bg-sky-100 outline-none focus-visible:outline-2 focus-visible:outline-offset-0 transition-colors focus-visible:outline-sky-800 rounded-sm"
+                className="text-sky-800 text-sm block px-4 py-2 hover:bg-sky-100 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 transition-colors focus-visible:outline-sky-800 rounded-md  "
                 to={`/${entry.entry_id}`}
               >
                 {entry.entry_title}
