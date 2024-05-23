@@ -1,6 +1,6 @@
 export default function TopNavigation() {
   return (
-    <nav className="fixed top-0 right-48 flex gap-2 z-10">
+    <nav className="fixed top-0 right-14 md:right-48 flex gap-2 z-10">
       <a
         href="https://www.messiah.edu/homepage/1553/request_information"
         target="_blank"

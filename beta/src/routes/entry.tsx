@@ -21,7 +21,7 @@ export default function Entry() {
 
   if (!entry) {
     return (
-      <>
+      <div>
         <img
           src={getCoverImageUrl()}
           alt=""
@@ -55,12 +55,12 @@ export default function Entry() {
             Back to overview
           </button>
         </div>
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className="overflow-y-auto">
       <img
         src={getCoverImageUrl(entry.image_1_required)}
         alt={entry.entry_title}
@@ -172,6 +172,6 @@ export default function Entry() {
           Back to overview
         </button>
       </div>
-    </>
+    </div>
   );
 }

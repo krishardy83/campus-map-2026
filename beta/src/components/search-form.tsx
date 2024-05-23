@@ -24,7 +24,7 @@ export default function SearchForm() {
 
   return (
     <search>
-      <form className="px-6 py-4 relative">
+      <form className="px-6 pt-0 pb-4 sm:py-4 relative">
         <Combobox onChange={handleChange}>
           <ComboboxInput
             type="search"

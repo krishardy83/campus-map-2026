@@ -33,13 +33,14 @@ export default function Root() {
           alt="Messiah Univerity Logo"
           width="236px"
           height="63px"
-          className="ml-6 my-6"
+          className="ml-6 my-4 sm:my-6 h-10 sm:h-auto w-max"
         />
 
         <button
           type="button"
           className={clsx(
-            "absolute -right-12 text-gray-600 bg-white shadow-sm p-2 cursor-pointer top-2.5 rounded-sm transition-transform duration-300 ease-in-out"
+            "absolute sm:-right-12 text-gray-600 bg-white sm:shadow-sm p-2 cursor-pointer sm:top-2.5 rounded-sm transition-transform duration-300 ease-in-out",
+            { "right-2 top-6": expanded, "top-2.5 -right-12": !expanded }
           )}
           title={`${expanded ? "Hide" : "Show"} navigation`}
           onClick={() => setExpanded(!expanded)}
