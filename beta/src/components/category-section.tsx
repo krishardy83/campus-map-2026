@@ -1,5 +1,6 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { Link, useSearchParams } from "react-router-dom";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import type { Entry } from "../types";
 
 type Props = {
@@ -34,18 +35,7 @@ export default function CategorySection({ category, entries }: Props) {
         <Accordion.Trigger className="group flex w-full items-center justify-between text-sky-800 cursor-pointer py-3 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-md focus-visible:-outline-offset-2">
           {category}
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-5 h-5 group-data-[state=open]:rotate-180 transition-transform duration-300"
-          >
-            <path
-              fillRule="evenodd"
-              d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <ChevronDownIcon className="w-5 h-5 group-data-[state=open]:rotate-180 transition-transform duration-300" />
         </Accordion.Trigger>
       </Accordion.Header>
       <Accordion.Content className="data-[state=open]:animate-slide-down data-[state=closed]:animate-slide-up overflow-hidden">

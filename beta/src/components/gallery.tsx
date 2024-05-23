@@ -6,6 +6,7 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
+import { PhotoIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 type Props = {
@@ -24,20 +25,7 @@ export default function Gallery({ images, title }: Props) {
         onClick={() => setOpen(true)}
         className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-800 text-sky-800 text-sm transition-colors hover:bg-sky-100 px-4 rounded-md py-1"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-8 h-8 mb-1"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-          />
-        </svg>
+        <PhotoIcon className="w-8 h-8 mb-1" />
         Photo Gallery
       </button>
       <Transition show={open}>
@@ -70,16 +58,7 @@ export default function Gallery({ images, title }: Props) {
                     className="text-sky-800 rounded-sm hover:bg-sky-100 p-1 transition-colors outline-none focus-visible:outline-2 focus-visible:outline-sky-800 focus-visible:outline-offset-0"
                     aria-label="close gallery"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-8 h-8"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
+                    <XMarkIcon className="w-8 h-8" />
                   </button>
                 </div>
                 <Description className="sr-only">
