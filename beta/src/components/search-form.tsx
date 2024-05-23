@@ -30,7 +30,7 @@ export default function SearchForm() {
             type="search"
             placeholder="Search"
             aria-label="Search campus site"
-            className="rounded-md h-12 border-2 px-2 placeholder:text-sky-700 placeholder:uppercase border-sky-800 w-full outline-none focus:shadow-lg focus:shadow-sky-100 transition-shadow"
+            className="rounded-md h-12 border-2 px-2 placeholder:text-calypso-800 placeholder:uppercase border-gray-200 focus-visible:border-calypso-800 w-full outline-none focus:shadow-lg focus:shadow-calypso-800/10 transition-all"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
@@ -55,12 +55,12 @@ export default function SearchForm() {
                     value={result.entry_id}
                     className={({ focus }) =>
                       clsx(
-                        "px-4 py-2 block border-b border-gray-200 transition-colors hover:bg-sky-100 group cursor-pointer",
-                        { "bg-sky-100": focus }
+                        "px-4 py-2 block border-b border-gray-200 transition-colors hover:bg-calypso-800/10 group cursor-pointer",
+                        { "bg-calypso-800/10": focus }
                       )
                     }
                   >
-                    <span className="font-bold block group-hover:text-sky-800 transition-colors">
+                    <span className="font-bold block group-hover:text-calypso-800 transition-colors">
                       {result.entry_title}
                     </span>
                     <span className="text-sm text-gray-500">{result.category_name}</span>

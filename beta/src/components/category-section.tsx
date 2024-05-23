@@ -32,7 +32,7 @@ export default function CategorySection({ category, entries }: Props) {
       className="px-6 border-t border-gray-200 transition-all ease-in-out duration-300"
     >
       <Accordion.Header>
-        <Accordion.Trigger className="group flex w-full items-center justify-between text-sky-800 cursor-pointer py-3 outline-none focus-visible:outline-2 focus-visible:outline-sky-800 rounded-md focus-visible:-outline-offset-2">
+        <Accordion.Trigger className="group flex w-full items-center justify-between text-calypso-800 cursor-pointer py-3 outline-none focus-visible:outline-2 focus-visible:outline-calypso-800 rounded-md focus-visible:-outline-offset-2">
           {category}
 
           <ChevronDownIcon className="w-5 h-5 group-data-[state=open]:rotate-180 transition-transform duration-300" />
@@ -42,7 +42,7 @@ export default function CategorySection({ category, entries }: Props) {
         <button
           type="button"
           onClick={handleToggleAll}
-          className="uppercase font-bold text-sm text-sky-800 px-4 py-2 hover:bg-sky-100 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-sky-800 rounded-md   w-full text-left transition-colors"
+          className="uppercase font-bold text-sm text-calypso-800 px-4 py-2 hover:bg-calypso-800/10 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-calypso-800 rounded-md   w-full text-left transition-colors"
         >
           {hasActiveMarker ? "Hide" : "Show"} all
         </button>
@@ -51,7 +51,7 @@ export default function CategorySection({ category, entries }: Props) {
           {entries.map((entry) => (
             <li key={entry.entry_id}>
               <Link
-                className="text-sky-800 text-sm block px-4 py-2 hover:bg-sky-100 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 transition-colors focus-visible:outline-sky-800 rounded-md  "
+                className="text-calypso-800 text-sm block px-4 py-2 hover:bg-calypso-800/10 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 transition-colors focus-visible:outline-calypso-800 rounded-md  "
                 to={`/${entry.entry_id}`}
               >
                 {entry.entry_title}

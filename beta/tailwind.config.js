@@ -4,11 +4,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#00698B",
+        calypso: {
+          50: "#e8ffff",
+          100: "#c5ffff",
+          200: "#92feff",
+          300: "#47feff",
+          400: "#00f3ff",
+          500: "#00d5ff",
+          600: "#00a7d7",
+          700: "#0083ac",
+          800: "#00698b",
+          900: "#055574",
+          950: "#003951",
         },
-        secondary: {
-          DEFAULT: "#614495",
+        victoria: {
+          50: "#f9f7fd",
+          100: "#f1edfa",
+          200: "#e4def6",
+          300: "#d0c4ee",
+          400: "#b39fe1",
+          500: "#9679d3",
+          600: "#7e5cc1",
+          700: "#6948a8",
+          800: "#614495",
+          900: "#4a346f",
+          950: "#2f1c4f",
         },
       },
     },
@@ -21,20 +41,10 @@ export default {
         from: { height: "var(--radix-accordion-content-height)" },
         to: { height: "0px" },
       },
-      "overlay-show": {
-        from: { opacity: "0" },
-        to: { opacity: "1" },
-      },
-      "content-show": {
-        from: { opacity: "0", transform: "translate(-50%, -48%) scale(0.96)" },
-        to: { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
-      },
     },
     animation: {
       "slide-down": "side-down 300ms cubic-bezier(0.87, 0, 0.13, 1)",
       "slide-up": "slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1)",
-      "overlay-show": "overlay-show 300ms cubic-bezier(0.16, 1, 0.3, 1)",
-      "content-show": "content-show 300ms cubic-bezier(0.16, 1, 0.3, 1)",
     },
   },
   plugins: [],

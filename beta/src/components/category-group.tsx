@@ -20,7 +20,7 @@ export default function CategoryGroup({ title, categories }: Props) {
 
   return (
     <>
-      <h2 className="bg-gray-100 text-sky-800 text-lg px-6 py-2 sticky top-0">{title}</h2>
+      <h2 className="bg-gray-100 text-calypso-800 text-lg px-6 py-2 sticky top-0">{title}</h2>
 
       <Accordion.Root
         type="multiple"

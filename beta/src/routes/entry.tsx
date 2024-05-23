@@ -32,12 +32,12 @@ export default function Entry() {
         />
 
         <div className="px-6 py-4">
-          <h1 className="text-2xl text-sky-800 font-bold mb-2">Not Found</h1>
+          <h1 className="text-2xl text-calypso-800 font-bold mb-2">Not Found</h1>
           <p>The entry you are looking for doesn't exist.</p>
 
           <button
             onClick={handleNavigateBack}
-            className="text-sky-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
+            className="text-calypso-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
           >
             <ArrowLeftIcon className="w-5 h-5" />
             Back to overview
@@ -60,7 +60,7 @@ export default function Entry() {
       <nav className="border-b border-gray-200 py-4 px-6 flex justify-center">
         <button
           onClick={handleNavigateBack}
-          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-800 text-sky-800 text-sm transition-colors hover:bg-sky-100 px-4 rounded-md py-1"
+          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
         >
           <ArrowLeftIcon className="w-8 h-8 mb-1" />
           Overview
@@ -69,7 +69,7 @@ export default function Entry() {
           href={getGoogleMapsUrl(entry.location)}
           target="_blank"
           rel="noopener nofollow noreferrer"
-          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-800 text-sky-800 text-sm transition-colors hover:bg-sky-100 px-4 rounded-md py-1"
+          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
         >
           <MapPinIcon className="w-8 h-8 mb-1" />
           Directions
@@ -79,7 +79,7 @@ export default function Entry() {
           <a
             href={entry.read_more_link}
             target="_blank"
-            className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-800 text-sky-800 text-sm transition-colors hover:bg-sky-100 px-4 rounded-md py-1"
+            className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
           >
             <GlobeAltIcon className="w-8 h-8 mb-1" />
             Website
@@ -92,12 +92,12 @@ export default function Entry() {
       </nav>
 
       <div className="px-6 py-4">
-        <h1 className="text-2xl text-sky-800 font-bold mb-2">{entry.entry_title}</h1>
+        <h1 className="text-2xl text-calypso-800 font-bold mb-2">{entry.entry_title}</h1>
         <p dangerouslySetInnerHTML={{ __html: entry.description }} />
 
         <button
           onClick={handleNavigateBack}
-          className="text-sky-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
+          className="text-calypso-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
         >
           <ArrowLeftIcon className="w-5 h-5" />
           Back to overview

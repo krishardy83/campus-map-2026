@@ -25,7 +25,7 @@ export default function Root() {
 
       <div
         className={clsx(
-          "fixed bg-white z-10 w-full max-w-md h-dvh before:h-3 before:bg-gradient-to-r before:from-primary before:to-secondary before:top-0 flex flex-col transition-transform duration-300 ease-in-out",
+          "fixed bg-white z-10 w-full max-w-md h-dvh before:h-3 before:bg-gradient-to-r before:from-calypso-800 before:to-victoria-800 before:top-0 flex flex-col transition-transform duration-300 ease-in-out",
           { "-translate-x-full": !expanded }
         )}
       >

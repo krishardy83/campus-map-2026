@@ -5,7 +5,7 @@ export default function TopNavigation() {
         href="https://www.messiah.edu/homepage/1553/request_information"
         target="_blank"
         rel="noopener nofollow noreferrer"
-        className="bg-primary text-white px-3 text-sm py-1 rounded-b-sm hover:underline focus-visible:underline outline-none"
+        className="bg-calypso-800 text-white px-3 text-sm py-1 rounded-b-sm hover:underline focus-visible:underline outline-none"
       >
         Request Info
       </a>
@@ -13,7 +13,7 @@ export default function TopNavigation() {
         href="https://www.messiah.edu/visit"
         target="_blank"
         rel="noopener nofollow noreferrer"
-        className="bg-secondary text-white px-3 text-sm py-1 rounded-b-sm hover:underline focus-visible:underline outline-none"
+        className="bg-victoria-800 text-white px-3 text-sm py-1 rounded-b-sm hover:underline focus-visible:underline outline-none"
       >
         Visit Campus
       </a>

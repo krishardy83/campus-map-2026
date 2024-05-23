@@ -23,7 +23,7 @@ export default function Gallery({ images, title }: Props) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-800 text-sky-800 text-sm transition-colors hover:bg-sky-100 px-4 rounded-md py-1"
+        className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
       >
         <PhotoIcon className="w-8 h-8 mb-1" />
         Photo Gallery
@@ -52,10 +52,10 @@ export default function Gallery({ images, title }: Props) {
             <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
               <DialogPanel className="w-4/5 bg-white p-4 shadow-xl">
                 <div className="flex items-center justify-between mb-4">
-                  <DialogTitle className="font-bold text-sky-800 text-2xl">{title}</DialogTitle>
+                  <DialogTitle className="font-bold text-calypso-800 text-2xl">{title}</DialogTitle>
                   <button
                     onClick={() => setOpen(false)}
-                    className="text-sky-800 rounded-sm hover:bg-sky-100 p-1 transition-colors outline-none focus-visible:outline-2 focus-visible:outline-sky-800 focus-visible:outline-offset-0"
+                    className="text-calypso-800 rounded-sm hover:bg-calypso-800/10 p-1 transition-colors outline-none focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:outline-offset-0"
                     aria-label="close gallery"
                   >
                     <XMarkIcon className="w-8 h-8" />
@@ -82,7 +82,7 @@ export default function Gallery({ images, title }: Props) {
                       type="button"
                       onClick={() => setActiveImage(image)}
                       aria-label={`show image ${index + 1}`}
-                      className="w-1/4 outline-none hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-sky-800 focus-visible:opacity-90"
+                      className="w-1/4 outline-none hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:opacity-90"
                     >
                       <img
                         src={`https://messiah.edu/images/${image}`}
