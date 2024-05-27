@@ -1,7 +1,13 @@
+import { fontFamily } from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
+    fontFamily: {
+      serif: ["Priori Sans", ...fontFamily.serif],
+      sans: ["Aptifer Sans", ...fontFamily.sans],
+    },
     extend: {
       colors: {
         calypso: {

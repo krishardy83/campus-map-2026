@@ -32,7 +32,7 @@ export default function Entry() {
         />
 
         <div className="px-6 py-4">
-          <h1 className="text-2xl text-calypso-800 font-bold mb-2">Not Found</h1>
+          <h1 className="font-serif text-3xl text-calypso-800 font-bold mb-2">Not Found</h1>
           <p>The entry you are looking for doesn't exist.</p>
 
           <button
@@ -92,7 +92,7 @@ export default function Entry() {
       </nav>
 
       <div className="px-6 py-4">
-        <h1 className="text-2xl text-calypso-800 font-bold mb-2">{entry.entry_title}</h1>
+        <h1 className="font-serif text-3xl text-calypso-800 font-bold mb-2">{entry.entry_title}</h1>
         <p dangerouslySetInnerHTML={{ __html: entry.description }} />
 
         <button

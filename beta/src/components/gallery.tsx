@@ -52,7 +52,9 @@ export default function Gallery({ images, title }: Props) {
             <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
               <DialogPanel className="w-4/5 bg-white p-4 shadow-xl">
                 <div className="flex items-center justify-between mb-4">
-                  <DialogTitle className="font-bold text-calypso-800 text-2xl">{title}</DialogTitle>
+                  <DialogTitle className="font-serif text-3xl font-bold text-calypso-800 text-2xl">
+                    {title}
+                  </DialogTitle>
                   <button
                     onClick={() => setOpen(false)}
                     className="text-calypso-800 rounded-sm hover:bg-calypso-800/10 p-1 transition-colors outline-none focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:outline-offset-0"
