@@ -9,6 +9,8 @@ type Props = {
   entries: Entry[];
 };
 
+const mq = window.matchMedia("(max-width: 640px)");
+
 export default function CategorySection({ category, entries }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { toggleNavigation } = usePageContext();
@@ -24,7 +26,10 @@ export default function CategorySection({ category, entries }: Props) {
         markers: previous.filter((marker) => marker !== category && marker.length > 0),
       });
     } else {
-      toggleNavigation();
+      if (mq.matches) {
+        toggleNavigation();
+      }
+
       setSearchParams({ ...params, markers: [...previous, category].join(",") });
     }
   }
