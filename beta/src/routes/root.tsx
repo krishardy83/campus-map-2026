@@ -1,23 +1,14 @@
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import clsx from "clsx";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import GoogleMap from "../components/google-map";
-import { SIDEBAR_EXPANDED } from "../constants";
 import SearchForm from "../components/search-form";
 import { getBaseUrl } from "../lib/utils";
 import TopNavigation from "../components/top-navigation";
+import usePageContext from "../hooks/use-page-context";
 
 export default function Root() {
-  const [expanded, setExpanded] = useState(() => {
-    const state = localStorage.getItem(SIDEBAR_EXPANDED);
-
-    if (!state) return true;
-
-    return state === "true";
-  });
-
-  localStorage.setItem(SIDEBAR_EXPANDED, String(expanded));
+  const { isNavigationExpanded, toggleNavigation } = usePageContext();
 
   return (
     <main>
@@ -26,7 +17,7 @@ export default function Root() {
       <div
         className={clsx(
           "fixed bg-white z-10 w-full max-w-md h-dvh before:h-3 before:bg-gradient-to-r before:from-calypso-800 before:to-victoria-800 before:top-0 flex flex-col transition-transform duration-300 ease-in-out",
-          { "-translate-x-full": !expanded }
+          { "-translate-x-full": !isNavigationExpanded }
         )}
       >
         <img
@@ -41,12 +32,16 @@ export default function Root() {
           type="button"
           className={clsx(
             "absolute sm:-right-12 text-gray-600 bg-white sm:shadow-sm p-2 cursor-pointer sm:top-2.5 rounded-sm transition-transform duration-300 ease-in-out",
-            { "right-2 top-6": expanded, "top-2.5 -right-12": !expanded }
+            { "right-2 top-6": isNavigationExpanded, "top-2.5 -right-12": !isNavigationExpanded }
           )}
-          title={`${expanded ? "Hide" : "Show"} navigation`}
-          onClick={() => setExpanded(!expanded)}
+          title={`${isNavigationExpanded ? "Hide" : "Show"} navigation`}
+          onClick={toggleNavigation}
         >
-          {expanded ? <EyeIcon className="w-6 h-6" /> : <EyeSlashIcon className="w-6 h-6" />}
+          {isNavigationExpanded ? (
+            <EyeIcon className="w-6 h-6" />
+          ) : (
+            <EyeSlashIcon className="w-6 h-6" />
+          )}
         </button>
 
         <SearchForm />

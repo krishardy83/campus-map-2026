@@ -2,6 +2,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { Link, useSearchParams } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import type { Entry } from "../types";
+import usePageContext from "../hooks/use-page-context";
 
 type Props = {
   category: string;
@@ -10,6 +11,7 @@ type Props = {
 
 export default function CategorySection({ category, entries }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { toggleNavigation } = usePageContext();
   const hasActiveMarker = searchParams.get("markers")?.split(",").includes(category);
 
   function handleToggleAll() {
@@ -22,6 +24,7 @@ export default function CategorySection({ category, entries }: Props) {
         markers: previous.filter((marker) => marker !== category && marker.length > 0),
       });
     } else {
+      toggleNavigation();
       setSearchParams({ ...params, markers: [...previous, category].join(",") });
     }
   }

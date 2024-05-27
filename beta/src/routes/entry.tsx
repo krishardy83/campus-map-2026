@@ -1,13 +1,15 @@
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { ArrowLeftIcon, MapPinIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, MapPinIcon, GlobeAltIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { getCoverImageUrl, getEntryById, getGalleryImages, getGoogleMapsUrl } from "../lib/utils";
 import data from "../data.json";
 import Gallery from "../components/gallery";
+import usePageContext from "../hooks/use-page-context";
 
 export default function Entry() {
   const { entryId } = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { toggleNavigation } = usePageContext();
 
   const entry = getEntryById(data, entryId);
   const fromSearch = searchParams.get("origin") === "search";
@@ -32,7 +34,9 @@ export default function Entry() {
         />
 
         <div className="px-6 py-4">
-          <h1 className="font-serif text-3xl text-calypso-800 font-bold mb-2">Not Found</h1>
+          <h1 className="font-serif leading-tight text-3xl text-calypso-800 font-bold mb-4">
+            Not Found
+          </h1>
           <p>The entry you are looking for doesn't exist.</p>
 
           <button
@@ -92,16 +96,28 @@ export default function Entry() {
       </nav>
 
       <div className="px-6 py-4">
-        <h1 className="font-serif text-3xl text-calypso-800 font-bold mb-2">{entry.entry_title}</h1>
+        <h1 className="font-serif leading-none text-3xl text-calypso-800 font-bold mb-4">
+          {entry.entry_title}
+        </h1>
         <p dangerouslySetInnerHTML={{ __html: entry.description }} />
 
-        <button
-          onClick={handleNavigateBack}
-          className="text-calypso-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
-        >
-          <ArrowLeftIcon className="w-5 h-5" />
-          Back to overview
-        </button>
+        <div className="flex items-center gap-x-8 gap-y-4 flex-wrap mt-6 ">
+          <button
+            onClick={handleNavigateBack}
+            className="text-calypso-800 uppercase font-bold text-sm inline-flex items-center gap-2"
+          >
+            <ArrowLeftIcon className="w-5 h-5" />
+            Back to overview
+          </button>
+
+          <button
+            onClick={toggleNavigation}
+            className="inline-flex sm:hidden text-calypso-800 uppercase font-bold text-sm items-center gap-2"
+          >
+            <EyeIcon className="w-5 h-5" />
+            View on the map
+          </button>
+        </div>
       </div>
     </div>
   );
