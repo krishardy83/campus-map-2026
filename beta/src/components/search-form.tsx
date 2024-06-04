@@ -9,22 +9,26 @@ import {
 } from "@headlessui/react";
 import clsx from "clsx";
 import data from "../data.json";
-import { getEntriesFromSearch } from "../lib/utils";
+import { createSlug, getEntriesFromSearch, getEntryById } from "../lib/utils";
 
 export default function SearchForm() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const results = getEntriesFromSearch(query, data);
 
-  function handleChange(value: string | null) {
-    if (value) {
-      navigate(`${value}?origin=search`);
+  function handleChange(entryId: string | null) {
+    if (entryId) {
+      const entry = getEntryById(data, entryId);
+
+      if (entry) {
+        navigate(`${createSlug(entry)}?origin=search`);
+      }
     }
   }
 
   return (
     <search>
-      <form className="px-6 pt-0 pb-4 sm:py-4 relative">
+      <form className="mx-6 mb-4 mt-2 relative">
         <Combobox onChange={handleChange}>
           <ComboboxInput
             type="search"
@@ -43,7 +47,7 @@ export default function SearchForm() {
             leaveTo="scale-95 opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <ComboboxOptions className="absolute mt-1 bg-gray-50 rounded-md shadow-md left-6 right-6 top-16 z-10 max-h-96 overflow-y-auto">
+            <ComboboxOptions className="absolute mt-1 bg-gray-50 rounded-md shadow-md left-0 right-0 top-12 z-10 max-h-96 overflow-y-auto">
               {results.length === 0 && query !== "" ? (
                 <div className="px-4 py-2">
                   No entries match your search. Please try a different term.

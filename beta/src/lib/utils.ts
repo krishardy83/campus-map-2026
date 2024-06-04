@@ -65,3 +65,25 @@ export function getGalleryImages(entry: Entry): string[] {
 
   return properties.map((property) => entry[property]).filter((image) => image.length > 0);
 }
+
+export function setPageTitle(title?: string): void {
+  const base = "Messiah University Campus Map";
+
+  if (title) {
+    document.title = `${title} - ${base}`;
+  } else {
+    document.title = base;
+  }
+}
+
+export function createSlug(entry: Entry): string {
+  return `${entry.entry_id}-${entry.shortcut}`;
+}
+
+export function parseSlug(slug?: string): string | undefined {
+  if (!slug) return;
+
+  const [id] = slug.split("-");
+
+  return id;
+}

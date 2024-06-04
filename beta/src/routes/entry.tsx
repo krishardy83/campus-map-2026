@@ -1,6 +1,13 @@
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { ArrowLeftIcon, MapPinIcon, GlobeAltIcon, EyeIcon } from "@heroicons/react/24/outline";
-import { getCoverImageUrl, getEntryById, getGalleryImages, getGoogleMapsUrl } from "../lib/utils";
+import {
+  getCoverImageUrl,
+  getEntryById,
+  getGalleryImages,
+  getGoogleMapsUrl,
+  parseSlug,
+  setPageTitle,
+} from "../lib/utils";
 import data from "../data.json";
 import Gallery from "../components/gallery";
 import usePageContext from "../hooks/use-page-context";
@@ -11,8 +18,10 @@ export default function Entry() {
   const navigate = useNavigate();
   const { toggleNavigation } = usePageContext();
 
-  const entry = getEntryById(data, entryId);
+  const entry = getEntryById(data, parseSlug(entryId));
   const fromSearch = searchParams.get("origin") === "search";
+
+  setPageTitle(entry ? entry.entry_title : "Not found");
 
   function handleNavigateBack() {
     if (fromSearch) {
@@ -61,7 +70,10 @@ export default function Entry() {
         className="aspect-video object-cover bg-gray-50"
       />
 
-      <nav className="border-b border-gray-200 py-4 px-6 flex justify-center">
+      <nav
+        className="border-b border-gray-200 py-4 px-6 flex justify-center"
+        aria-label="main navigation"
+      >
         <button
           onClick={handleNavigateBack}
           className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"

@@ -1,10 +1,12 @@
-import { getCategories } from "../lib/utils";
+import { getCategories, setPageTitle } from "../lib/utils";
 import data from "../data.json";
 import CategoryGroup from "../components/category-group";
 
 const visitorQuickLinks = ["Admissions", "Parking", "College Entrances", "Guest Services"];
 
 export default function Overview() {
+  setPageTitle();
+
   return (
     <div className="overflow-y-auto flex-1 relative">
       <CategoryGroup

@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import type { Entry } from "../types";
 import usePageContext from "../hooks/use-page-context";
+import { createSlug } from "../lib/utils";
 
 type Props = {
   category: string;
@@ -60,7 +61,7 @@ export default function CategorySection({ category, entries }: Props) {
             <li key={entry.entry_id}>
               <Link
                 className="text-calypso-800 text-sm block px-4 py-2 hover:bg-calypso-800/10 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 transition-colors focus-visible:outline-calypso-800 rounded-md  "
-                to={`/${entry.entry_id}`}
+                to={`/${createSlug(entry)}`}
               >
                 {entry.entry_title}
               </Link>
