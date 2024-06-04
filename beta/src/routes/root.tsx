@@ -25,8 +25,10 @@ export default function Root() {
           alt="Messiah Univerity Logo"
           width="236px"
           height="63px"
-          className="ml-6 my-4 sm:my-6 h-10 sm:h-auto w-max"
+          className="ml-6 mt-4 sm:mt-6 mb-4 h-10 sm:h-auto w-max"
         />
+
+        <h1 className="font-serif text-3xl text-calypso-800 mx-6">Campus Map</h1>
 
         <button
           type="button"
