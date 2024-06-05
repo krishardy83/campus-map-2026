@@ -37,20 +37,20 @@ export default {
           950: "#2f1c4f",
         },
       },
-    },
-    keyframes: {
-      "side-down": {
-        from: { height: "0px" },
-        to: { height: "var(--radix-accordion-content-height)" },
+      keyframes: {
+        "side-down": {
+          from: { height: "0px" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "slide-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0px" },
+        },
       },
-      "slide-up": {
-        from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: "0px" },
+      animation: {
+        "slide-down": "side-down 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+        "slide-up": "slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1)",
       },
-    },
-    animation: {
-      "slide-down": "side-down 300ms cubic-bezier(0.87, 0, 0.13, 1)",
-      "slide-up": "slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1)",
     },
   },
   plugins: [],

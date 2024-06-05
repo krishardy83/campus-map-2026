@@ -8,17 +8,18 @@ import {
   Transition,
 } from "@headlessui/react";
 import clsx from "clsx";
-import data from "../data.json";
 import { createSlug, getEntriesFromSearch, getEntryById } from "../lib/utils";
+import usePageContext from "../hooks/use-page-context";
 
 export default function SearchForm() {
+  const { entries } = usePageContext();
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
-  const results = getEntriesFromSearch(query, data);
+  const results = getEntriesFromSearch(query, entries);
 
   function handleChange(entryId: string | null) {
     if (entryId) {
-      const entry = getEntryById(data, entryId);
+      const entry = getEntryById(entries, entryId);
 
       if (entry) {
         navigate(`${createSlug(entry)}?origin=search`);
@@ -34,7 +35,7 @@ export default function SearchForm() {
             type="search"
             placeholder="Search"
             aria-label="Search campus site"
-            className="rounded-md h-12 border-2 px-2 placeholder:text-calypso-800 placeholder:uppercase border-gray-200 focus-visible:border-calypso-800 w-full outline-none focus:shadow-lg focus:shadow-calypso-800/10 transition-all"
+            className="rounded-md h-12 border px-4 placeholder:text-calypso-800 placeholder:uppercase border-gray-200 focus-visible:border-calypso-800 w-full outline-none focus:shadow-lg focus:shadow-calypso-800/10 transition-all"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />

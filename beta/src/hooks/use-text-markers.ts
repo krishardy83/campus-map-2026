@@ -1,8 +1,10 @@
-import data from "../data.json";
+import usePageContext from "./use-page-context";
 
 export default function useTextMarkers() {
-  const markers = data
-    .filter((entry) => entry?.location.length > 0)
+  const { entries } = usePageContext();
+
+  return entries
+    .filter((entry) => entry.location.length > 0 && entry.building === "yes")
     .map((entry) => {
       const [lat, lng] = entry.location.split(",").map(Number);
 
@@ -13,6 +15,4 @@ export default function useTextMarkers() {
         name: entry.entry_title,
       };
     });
-
-  return markers;
 }

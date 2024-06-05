@@ -1,7 +1,19 @@
 import { createContext } from "react";
+import { Entry } from "../types";
 
-const pageContext = createContext({
+type ContextState = {
+  isNavigationExpanded: boolean;
+  loading: boolean;
+  error: boolean;
+  entries: Entry[];
+  toggleNavigation(): void;
+};
+
+const pageContext = createContext<ContextState>({
   isNavigationExpanded: true,
+  loading: true,
+  error: false,
+  entries: [],
   toggleNavigation: () => {},
 });
 

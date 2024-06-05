@@ -1,18 +1,19 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import data from "../data.json";
 import { getEntriesForCategory, getEntryById, parseSlug } from "../lib/utils";
+import usePageContext from "./use-page-context";
 
 export default function useMapMarkers() {
   const [searchParams] = useSearchParams();
   const { entryId } = useParams();
+  const { entries } = usePageContext();
 
   const categories = searchParams.get("markers")?.split(",") || [];
-  const entry = getEntryById(data, parseSlug(entryId));
+  const entry = getEntryById(entries, parseSlug(entryId));
   const coords: { lat: number; lng: number; id: string; title: string }[] = [];
 
   if (categories.length > 0) {
     categories.forEach((category) => {
-      const matches = getEntriesForCategory(category, data);
+      const matches = getEntriesForCategory(category, entries);
 
       coords.push(
         ...matches.map((entry) => {

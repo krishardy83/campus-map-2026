@@ -8,7 +8,6 @@ import {
   parseSlug,
   setPageTitle,
 } from "../lib/utils";
-import data from "../data.json";
 import Gallery from "../components/gallery";
 import usePageContext from "../hooks/use-page-context";
 
@@ -16,9 +15,9 @@ export default function Entry() {
   const { entryId } = useParams();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { toggleNavigation } = usePageContext();
+  const { toggleNavigation, entries } = usePageContext();
 
-  const entry = getEntryById(data, parseSlug(entryId));
+  const entry = getEntryById(entries, parseSlug(entryId));
   const fromSearch = searchParams.get("origin") === "search";
 
   setPageTitle(entry ? entry.entry_title : "Not found");

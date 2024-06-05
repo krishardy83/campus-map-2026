@@ -21,4 +21,6 @@ export type Entry = {
   multiple_locations_new: string;
   hide_from_search: string;
   hide_category_expand: string;
+  building: string;
+  hide_marker_and_info_box: string;
 };
