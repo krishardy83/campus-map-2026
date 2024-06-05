@@ -10,15 +10,6 @@ const INITIAL_CAMERA = {
   zoom: 18,
 };
 
-// const MIN_ZOOM = 16 as const;
-// const MAX_ZOOM = 20 as const;
-
-// function convert(zoom: number = 18) {
-//   const result = Math.round(((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * 100);
-
-//   return result > 0 ? result : 0;
-// }
-
 export default function GoogleMap() {
   const navigate = useNavigate();
   const map = useMap();
@@ -43,7 +34,6 @@ export default function GoogleMap() {
       zoomControl
       mapId="bf51a910020fa25a"
       mapTypeId="satellite"
-      // onZoomChanged={handleZoomChanged}
     >
       {textMarkers.map((marker) => (
         <AdvancedMarker
