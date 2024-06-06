@@ -22,7 +22,7 @@ export default function SearchForm() {
       const entry = getEntryById(entries, entryId);
 
       if (entry) {
-        navigate(`${createSlug(entry)}?origin=search`);
+        navigate(createSlug(entry));
       }
     }
   }
