@@ -43,6 +43,10 @@ export function getEntriesFromSearch(search: string, entries: Entry[]) {
   });
 }
 
+export function getEntriesInThisBuilding(entry: Entry, entries: Entry[]): Entry[] {
+  return entries.filter(({ parent_building }) => parent_building === entry.entry_id);
+}
+
 export function getCoverImageUrl(image?: string): string {
   if (image) {
     return `http://www.messiah.edu/images/${image}`;

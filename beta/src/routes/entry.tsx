@@ -1,7 +1,9 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeftIcon, MapPinIcon, GlobeAltIcon, EyeIcon } from "@heroicons/react/24/outline";
 import {
+  createSlug,
   getCoverImageUrl,
+  getEntriesInThisBuilding,
   getEntryById,
   getGalleryImages,
   getGoogleMapsUrl,
@@ -48,6 +50,8 @@ export default function Entry() {
       </div>
     );
   }
+
+  const locationsInside = getEntriesInThisBuilding(entry, entries);
 
   return (
     <div className="overflow-y-auto">
@@ -100,7 +104,29 @@ export default function Entry() {
         <h1 className="font-serif leading-none text-3xl text-calypso-800 font-bold mb-4">
           {entry.entry_title}
         </h1>
+
         <p dangerouslySetInnerHTML={{ __html: entry.description }} />
+
+        {locationsInside.length > 0 ? (
+          <>
+            <h2 className="font-serif leading-none mt-8 text-2xl text-calypso-800 font-bold mb-2">
+              Locations in this building
+            </h2>
+
+            <ul className="list-disc pl-6">
+              {locationsInside.map((location) => (
+                <li key={location.entry_id}>
+                  <Link
+                    to={`/${createSlug(location)}`}
+                    className="hover:underline text-calypso-800 focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800"
+                  >
+                    {location.entry_title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
 
         <div className="flex items-center gap-x-8 gap-y-4 flex-wrap mt-6 ">
           <button

@@ -28,7 +28,7 @@ export default function Root() {
           className="ml-6 mt-4 sm:mt-6 mb-4 h-10 sm:h-auto w-max"
         />
 
-        <h1 className="font-serif text-3xl text-calypso-800 mx-6">Campus Map</h1>
+        <p className="font-serif text-3xl text-calypso-800 mx-6">Campus Map</p>
 
         <button
           type="button"

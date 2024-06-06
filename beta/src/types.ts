@@ -23,4 +23,5 @@ export type Entry = {
   hide_category_expand: string;
   building2: string;
   hide_marker_and_info_box: string;
+  parent_building: string;
 };
