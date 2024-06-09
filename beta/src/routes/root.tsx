@@ -25,7 +25,7 @@ export default function Root() {
           alt="Messiah Univerity Logo"
           width="236px"
           height="63px"
-          className="ml-6 mt-4 sm:mt-6 mb-4 h-10 sm:h-auto w-max"
+          className="sm:w-64 mx-6 mt-6 mb-4 w-1/2"
         />
 
         <p className="font-serif text-3xl text-calypso-800 mx-6">Campus Map</p>
