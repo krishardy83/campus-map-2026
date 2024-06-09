@@ -22,6 +22,18 @@ export function getEntryById(entries: Entry[], id?: string): Entry | undefined {
   return entries.find((entry) => entry.entry_id === id);
 }
 
+export function removeDuplicates(entries: Entry[]): Entry[] {
+  const selected: Entry[] = [];
+
+  entries.forEach((entry) => {
+    if (!selected.find((t) => t.entry_title === entry.entry_title)) {
+      selected.push(entry);
+    }
+  });
+
+  return selected;
+}
+
 export function getEntriesFromSearch(search: string, entries: Entry[]) {
   const searchable: (keyof Entry)[] = ["category_name", "keywords", "entry_title", "description"];
   const query = search.toLowerCase().trim();
@@ -30,17 +42,19 @@ export function getEntriesFromSearch(search: string, entries: Entry[]) {
     return entries;
   }
 
-  return entries.filter((entry) => {
-    let match = false;
+  return removeDuplicates(
+    entries.filter((entry) => {
+      let match = false;
 
-    searchable.forEach((key) => {
-      if (entry[key].toLowerCase().includes(query)) {
-        match = true;
-      }
-    });
+      searchable.forEach((key) => {
+        if (entry[key].toLowerCase().includes(query)) {
+          match = true;
+        }
+      });
 
-    return match;
-  });
+      return match;
+    })
+  );
 }
 
 export function getEntriesInThisBuilding(entry: Entry, entries: Entry[]): Entry[] {
