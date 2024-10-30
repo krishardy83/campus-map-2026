@@ -23,7 +23,7 @@ export default function Root() {
         <button
           type="button"
           className={clsx(
-            "absolute sm:-right-12 text-gray-600 bg-white sm:shadow-sm p-2 cursor-pointer sm:top-2.5 rounded-sm transition-transform duration-300 ease-in-out z-10",
+            "absolute sm:-right-12 text-gray-600 bg-white shadow-md sm:shadow-sm p-2 sm:top-2.5 rounded-sm transition-transform duration-300 ease-in-out z-10",
             { "right-2 top-6": isNavigationExpanded, "top-2.5 -right-12": !isNavigationExpanded }
           )}
           title={`${isNavigationExpanded ? "Hide" : "Show"} navigation`}
@@ -42,10 +42,12 @@ export default function Root() {
             alt="Messiah Univerity Logo"
             width="236px"
             height="63px"
-            className="sm:w-64 mx-6 mt-6 mb-4 w-1/2"
+            className="sm:w-48 mx-6 mt-6 mb-4 w-1/3"
           />
 
-          <p className="font-serif text-3xl text-calypso-800 mx-6">Campus Map</p>
+          <p className="font-serif text-2xl font-bold sm:text-3xl text-calypso-800 mx-6">
+            Campus Map
+          </p>
 
           <SearchForm />
 

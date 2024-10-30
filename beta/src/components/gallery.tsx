@@ -1,11 +1,4 @@
-import {
-  Description,
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-  Transition,
-  TransitionChild,
-} from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
 import { PhotoIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -23,7 +16,7 @@ export default function Gallery({ images, title }: Props) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
+        className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
       >
         <PhotoIcon className="w-8 h-8 mb-1" />
         Photo Gallery
@@ -50,9 +43,9 @@ export default function Gallery({ images, title }: Props) {
             leaveTo="opacity-0 scale-95"
           >
             <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-              <DialogPanel className="w-4/5 bg-white p-4 shadow-xl">
+              <DialogPanel className="sm:w-4/5 bg-white p-4 shadow-xl">
                 <div className="flex items-center justify-between mb-4">
-                  <DialogTitle className="font-serif text-3xl font-bold text-calypso-800 text-2xl">
+                  <DialogTitle className="font-serif font-bold text-calypso-800 text-2xl sm:text-3xl">
                     {title}
                   </DialogTitle>
                   <button
@@ -63,11 +56,8 @@ export default function Gallery({ images, title }: Props) {
                     <XMarkIcon className="w-8 h-8" />
                   </button>
                 </div>
-                <Description className="sr-only">
-                  This will permanently deactivate your account
-                </Description>
 
-                <figure className="mb-4">
+                <figure className="mb-2 sm:mb-4">
                   <img
                     src={`https://messiah.edu/images/${activeImage}`}
                     alt={`image of ${title}`}
@@ -77,21 +67,21 @@ export default function Gallery({ images, title }: Props) {
                   />
                 </figure>
 
-                <div className="flex gap-4">
+                <div className="flex gap-2 sm:gap-4">
                   {images.map((image, index) => (
                     <button
                       key={image}
                       type="button"
                       onClick={() => setActiveImage(image)}
                       aria-label={`show image ${index + 1}`}
-                      className="w-1/4 outline-none hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:opacity-90"
+                      className="flex-1 outline-none hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:opacity-90"
                     >
                       <img
                         src={`https://messiah.edu/images/${image}`}
                         alt={`image ${index + 1} of ${images.length}`}
                         width="360"
                         height="200"
-                        className="w-full aspect-video object-cover bg-gray-100"
+                        className="w-full h-full md:aspect-video object-cover bg-gray-100"
                       />
                     </button>
                   ))}

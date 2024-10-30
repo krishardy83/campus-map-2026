@@ -69,7 +69,7 @@ export default function Entry() {
       >
         <button
           onClick={() => navigate("/")}
-          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
+          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
         >
           <ArrowLeftIcon className="w-8 h-8 mb-1" />
           Overview
@@ -78,7 +78,7 @@ export default function Entry() {
           href={getGoogleMapsUrl(entry.location)}
           target="_blank"
           rel="noopener nofollow noreferrer"
-          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
+          className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
         >
           <MapPinIcon className="w-8 h-8 mb-1" />
           Directions
@@ -88,7 +88,7 @@ export default function Entry() {
           <a
             href={entry.read_more_link}
             target="_blank"
-            className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
+            className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
           >
             <GlobeAltIcon className="w-8 h-8 mb-1" />
             Website
@@ -100,7 +100,7 @@ export default function Entry() {
         ) : null}
       </nav>
 
-      <div className="px-6 py-4">
+      <div className="px-6 pt-4 pb-12">
         <h1 className="font-serif leading-none text-3xl text-calypso-800 font-bold mb-4">
           {entry.entry_title}
         </h1>
