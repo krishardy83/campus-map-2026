@@ -20,35 +20,37 @@ export default function Root() {
           { "-translate-x-full": !isNavigationExpanded }
         )}
       >
-        <img
-          src={getBaseUrl("logo.svg")}
-          alt="Messiah Univerity Logo"
-          width="236px"
-          height="63px"
-          className="sm:w-64 mx-6 mt-6 mb-4 w-1/2"
-        />
-
-        <p className="font-serif text-3xl text-calypso-800 mx-6">Campus Map</p>
-
         <button
           type="button"
           className={clsx(
-            "absolute sm:-right-12 text-gray-600 bg-white sm:shadow-sm p-2 cursor-pointer sm:top-2.5 rounded-sm transition-transform duration-300 ease-in-out",
+            "absolute sm:-right-12 text-gray-600 bg-white sm:shadow-sm p-2 cursor-pointer sm:top-2.5 rounded-sm transition-transform duration-300 ease-in-out z-10",
             { "right-2 top-6": isNavigationExpanded, "top-2.5 -right-12": !isNavigationExpanded }
           )}
           title={`${isNavigationExpanded ? "Hide" : "Show"} navigation`}
           onClick={toggleNavigation}
         >
           {isNavigationExpanded ? (
-            <EyeIcon className="w-6 h-6" />
-          ) : (
             <EyeSlashIcon className="w-6 h-6" />
+          ) : (
+            <EyeIcon className="w-6 h-6" />
           )}
         </button>
 
-        <SearchForm />
+        <div className="overflow-y-auto">
+          <img
+            src={getBaseUrl("logo.svg")}
+            alt="Messiah Univerity Logo"
+            width="236px"
+            height="63px"
+            className="sm:w-64 mx-6 mt-6 mb-4 w-1/2"
+          />
 
-        <Outlet />
+          <p className="font-serif text-3xl text-calypso-800 mx-6">Campus Map</p>
+
+          <SearchForm />
+
+          <Outlet />
+        </div>
       </div>
 
       <GoogleMap />

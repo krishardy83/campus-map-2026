@@ -25,7 +25,7 @@ export default function Overview() {
   }
 
   return (
-    <div className="overflow-y-auto flex-1 relative">
+    <div className="flex-1 relative">
       <h1 className="sr-only">All locations and buildings</h1>
 
       <CategoryGroup
