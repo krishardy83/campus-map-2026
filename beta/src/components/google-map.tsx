@@ -5,13 +5,14 @@ import useMapOverlay from "../hooks/use-map-overlay";
 import useMapMarkers from "../hooks/use-map-markers";
 import useTextMarkers from "../hooks/use-text-markers";
 import usePageContext from "../hooks/use-page-context";
+import { memo } from "react";
 
 const INITIAL_CAMERA = {
   center: { lat: 40.157204, lng: -76.988973 },
   zoom: 18,
 };
 
-export default function GoogleMap() {
+export default memo(function GoogleMap() {
   const navigate = useNavigate();
   const { toggleNavigation, isNavigationExpanded } = usePageContext();
   const map = useMap();
@@ -73,4 +74,4 @@ export default function GoogleMap() {
       ))}
     </Map>
   );
-}
+});
