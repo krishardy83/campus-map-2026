@@ -1,5 +1,3 @@
-import * as Accordion from "@radix-ui/react-accordion";
-import { useSearchParams } from "react-router-dom";
 import CategorySection from "./category-section";
 import { getEntriesForCategory } from "../lib/utils";
 import usePageContext from "../hooks/use-page-context";
@@ -11,14 +9,7 @@ type Props = {
 };
 
 export default function CategoryGroup({ title, categories }: Props) {
-  const [searchParams, setSearchParams] = useSearchParams();
   const { entries, loading } = usePageContext();
-
-  function handleValueChange(expanded: string[]) {
-    const params = Object.fromEntries(searchParams.entries());
-
-    setSearchParams({ ...params, expanded: expanded.join(",") });
-  }
 
   return (
     <>
@@ -44,19 +35,13 @@ export default function CategoryGroup({ title, categories }: Props) {
           </div>
         </div>
       ) : (
-        <Accordion.Root
-          type="multiple"
-          onValueChange={handleValueChange}
-          defaultValue={searchParams.get("expanded")?.split(",")}
-        >
-          {categories.map((category) => (
-            <CategorySection
-              category={category}
-              key={category}
-              entries={getEntriesForCategory(category, entries)}
-            />
-          ))}
-        </Accordion.Root>
+        categories.map((category) => (
+          <CategorySection
+            category={category}
+            key={category}
+            entries={getEntriesForCategory(category, entries)}
+          />
+        ))
       )}
     </>
   );
