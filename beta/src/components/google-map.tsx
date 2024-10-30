@@ -4,6 +4,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import useMapOverlay from "../hooks/use-map-overlay";
 import useMapMarkers from "../hooks/use-map-markers";
 import useTextMarkers from "../hooks/use-text-markers";
+import usePageContext from "../hooks/use-page-context";
 
 const INITIAL_CAMERA = {
   center: { lat: 40.157204, lng: -76.988973 },
@@ -12,6 +13,7 @@ const INITIAL_CAMERA = {
 
 export default function GoogleMap() {
   const navigate = useNavigate();
+  const { toggleNavigation, isNavigationExpanded } = usePageContext();
   const map = useMap();
   const overlay = useMapOverlay();
   const markers = useMapMarkers();
@@ -22,6 +24,14 @@ export default function GoogleMap() {
 
   if (map?.overlayMapTypes.getLength() === 0) {
     map?.overlayMapTypes.push(overlay);
+  }
+
+  function handleMarkerClick(id: string) {
+    navigate(id);
+
+    if (!isNavigationExpanded) {
+      setTimeout(toggleNavigation, 500);
+    }
   }
 
   return (
@@ -39,7 +49,7 @@ export default function GoogleMap() {
         <AdvancedMarker
           position={marker}
           key={`text-markers-${marker.id}`}
-          onClick={() => navigate(marker.id)}
+          onClick={() => handleMarkerClick(marker.id)}
           collisionBehavior="OPTIONAL_AND_HIDES_LOWER_PRIORITY"
           className="relative top-5"
         >
