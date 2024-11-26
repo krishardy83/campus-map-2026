@@ -12,6 +12,7 @@ export default function useTextMarkers() {
         lat,
         lng,
         id: entry.entry_id,
+        shortcut: entry.shortcut,
         name: entry.entry_title,
       };
     });

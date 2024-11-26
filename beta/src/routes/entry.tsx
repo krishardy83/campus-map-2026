@@ -1,24 +1,22 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeftIcon, MapPinIcon, GlobeAltIcon, EyeIcon } from "@heroicons/react/24/outline";
 import {
-  createSlug,
   getCoverImageUrl,
   getEntriesInThisBuilding,
-  getEntryById,
+  getEntryByShortcut,
   getGalleryImages,
   getGoogleMapsUrl,
-  parseSlug,
   setPageTitle,
 } from "../lib/utils";
 import Gallery from "../components/gallery";
 import usePageContext from "../hooks/use-page-context";
 
 export default function Entry() {
-  const { entryId } = useParams();
+  const { shortcut } = useParams();
   const navigate = useNavigate();
   const { toggleNavigation, entries } = usePageContext();
 
-  const entry = getEntryById(entries, parseSlug(entryId));
+  const entry = getEntryByShortcut(entries, shortcut);
 
   setPageTitle(entry ? entry.entry_title : "Not found");
 
@@ -117,7 +115,7 @@ export default function Entry() {
               {locationsInside.map((location) => (
                 <li key={location.entry_id}>
                   <Link
-                    to={`/${createSlug(location)}`}
+                    to={`/${location.shortcut}`}
                     className="hover:underline text-calypso-800 focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800"
                   >
                     {location.entry_title}

@@ -18,8 +18,8 @@ export function getEntriesForCategory(category: string, entries: Entry[]): Entry
   return entries.filter((entry) => entry.category_name === category && entry.live === "1");
 }
 
-export function getEntryById(entries: Entry[], id?: string): Entry | undefined {
-  return entries.find((entry) => entry.entry_id === id);
+export function getEntryByShortcut(entries: Entry[], shortcut?: string): Entry | undefined {
+  return entries.find((entry) => entry.shortcut === shortcut);
 }
 
 export function removeDuplicates(entries: Entry[]): Entry[] {
@@ -92,16 +92,4 @@ export function setPageTitle(title?: string): void {
   } else {
     document.title = base;
   }
-}
-
-export function createSlug(entry: Entry): string {
-  return `${entry.entry_id}-${entry.shortcut}`;
-}
-
-export function parseSlug(slug?: string): string | undefined {
-  if (!slug) return;
-
-  const [id] = slug.split("-");
-
-  return id;
 }

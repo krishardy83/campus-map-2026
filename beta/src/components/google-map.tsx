@@ -50,7 +50,7 @@ export default memo(function GoogleMap() {
         <AdvancedMarker
           position={marker}
           key={`text-markers-${marker.id}`}
-          onClick={() => handleMarkerClick(marker.id)}
+          onClick={() => handleMarkerClick(marker.shortcut)}
           collisionBehavior="OPTIONAL_AND_HIDES_LOWER_PRIORITY"
           className="relative top-5"
         >
@@ -64,7 +64,7 @@ export default memo(function GoogleMap() {
         <AdvancedMarker
           position={marker}
           key={marker.id}
-          onClick={() => navigate(marker.id)}
+          onClick={() => navigate(marker.shortcut)}
           title={marker.title}
         >
           <Pin scale={1.5} background="#00698B" borderColor="#fff" glyphColor="#fff">

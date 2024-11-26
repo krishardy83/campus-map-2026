@@ -8,7 +8,7 @@ import {
   Transition,
 } from "@headlessui/react";
 import clsx from "clsx";
-import { createSlug, getEntriesFromSearch, getEntryById } from "../lib/utils";
+import { getEntriesFromSearch, getEntryByShortcut } from "../lib/utils";
 import usePageContext from "../hooks/use-page-context";
 
 export default function SearchForm() {
@@ -17,12 +17,12 @@ export default function SearchForm() {
   const [query, setQuery] = useState("");
   const results = getEntriesFromSearch(query, entries);
 
-  function handleChange(entryId: string | null) {
-    if (entryId) {
-      const entry = getEntryById(entries, entryId);
+  function handleChange(shortcut: string | null) {
+    if (shortcut) {
+      const entry = getEntryByShortcut(entries, shortcut);
 
       if (entry) {
-        navigate(createSlug(entry));
+        navigate(entry.shortcut);
       }
     }
   }
@@ -57,7 +57,7 @@ export default function SearchForm() {
                 results.map((result) => (
                   <ComboboxOption
                     key={result.entry_id}
-                    value={result.entry_id}
+                    value={result.shortcut}
                     className={({ focus }) =>
                       clsx(
                         "px-4 py-2 block border-b border-gray-200 transition-colors hover:bg-calypso-800/10 group cursor-pointer",

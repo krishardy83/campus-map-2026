@@ -10,7 +10,7 @@ type Props = {
 
 export default function PageContextProvider({ children }: Props) {
   const { data, loading, error } = useData<{ items: Entry[] }>(
-    "https://www.messiah.edu/site/a/cache/campus_map.json"
+    "https://cascade.messiah.edu/campus-map/_data/campus-map.json"
   );
   const [isNavigationExpanded, setIsNavigationExpanded] = useState(() => {
     const state = localStorage.getItem(SIDEBAR_EXPANDED);

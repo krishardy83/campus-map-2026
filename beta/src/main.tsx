@@ -19,7 +19,7 @@ const router = createHashRouter([
         element: <Overview />,
       },
       {
-        path: ":entryId",
+        path: ":shortcut",
         element: <Entry />,
       },
     ],
