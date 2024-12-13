@@ -1,4 +1,10 @@
-import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import { PhotoIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -49,6 +55,7 @@ export default function Gallery({ images, title }: Props) {
                     {title}
                   </DialogTitle>
                   <button
+                    type="button"
                     onClick={() => setOpen(false)}
                     className="text-calypso-800 rounded-sm hover:bg-calypso-800/10 p-1 transition-colors outline-none focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:outline-offset-0"
                     aria-label="close gallery"

@@ -1,5 +1,12 @@
+import {
+  ArrowLeftIcon,
+  EyeIcon,
+  GlobeAltIcon,
+  MapPinIcon,
+} from "@heroicons/react/24/outline";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeftIcon, MapPinIcon, GlobeAltIcon, EyeIcon } from "@heroicons/react/24/outline";
+import Gallery from "../components/gallery";
+import usePageContext from "../hooks/use-page-context";
 import {
   getCoverImageUrl,
   getEntriesInThisBuilding,
@@ -8,8 +15,6 @@ import {
   getGoogleMapsUrl,
   setPageTitle,
 } from "../lib/utils";
-import Gallery from "../components/gallery";
-import usePageContext from "../hooks/use-page-context";
 
 export default function Entry() {
   const { shortcut } = useParams();
@@ -38,6 +43,7 @@ export default function Entry() {
           <p>The entry you are looking for doesn't exist.</p>
 
           <button
+            type="button"
             onClick={() => navigate("/")}
             className="text-calypso-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
           >
@@ -66,6 +72,7 @@ export default function Entry() {
         aria-label="main navigation"
       >
         <button
+          type="button"
           onClick={() => navigate("/")}
           className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
         >
@@ -86,6 +93,7 @@ export default function Entry() {
           <a
             href={entry.read_more_link}
             target="_blank"
+            rel="noopener nofollow noreferrer"
             className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
           >
             <GlobeAltIcon className="w-8 h-8 mb-1" />
@@ -128,6 +136,7 @@ export default function Entry() {
 
         <div className="flex items-center gap-x-8 gap-y-4 flex-wrap mt-6 ">
           <button
+            type="button"
             onClick={() => navigate("/")}
             className="text-calypso-800 uppercase font-bold text-sm inline-flex items-center gap-2"
           >
@@ -136,6 +145,7 @@ export default function Entry() {
           </button>
 
           <button
+            type="button"
             onClick={toggleNavigation}
             className="inline-flex sm:hidden text-calypso-800 uppercase font-bold text-sm items-center gap-2"
           >

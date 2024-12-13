@@ -5,33 +5,46 @@ export function getCategories(entries: Entry[]): string[] {
     new Set<string>(
       entries
         .filter((entry) => entry.category_name.length > 0 && entry.live === "1")
-        .map((entry) => entry.category_name)
-    )
+        .map((entry) => entry.category_name),
+    ),
   );
 }
 
-export function getEntriesForCategory(category: string, entries: Entry[]): Entry[] {
-  return entries.filter((entry) => entry.category_name === category && entry.live === "1");
+export function getEntriesForCategory(
+  category: string,
+  entries: Entry[],
+): Entry[] {
+  return entries.filter(
+    (entry) => entry.category_name === category && entry.live === "1",
+  );
 }
 
-export function getEntryByShortcut(entries: Entry[], shortcut?: string): Entry | undefined {
+export function getEntryByShortcut(
+  entries: Entry[],
+  shortcut?: string,
+): Entry | undefined {
   return entries.find((entry) => entry.shortcut === shortcut);
 }
 
 export function removeDuplicates(entries: Entry[]): Entry[] {
   const selected: Entry[] = [];
 
-  entries.forEach((entry) => {
+  for (const entry of entries) {
     if (!selected.find((t) => t.entry_title === entry.entry_title)) {
       selected.push(entry);
     }
-  });
+  }
 
   return selected;
 }
 
 export function getEntriesFromSearch(search: string, entries: Entry[]) {
-  const searchable: (keyof Entry)[] = ["category_name", "keywords", "entry_title", "description"];
+  const searchable: (keyof Entry)[] = [
+    "category_name",
+    "keywords",
+    "entry_title",
+    "description",
+  ];
   const query = search.toLowerCase().trim();
 
   if (query.length === 0) {
@@ -42,19 +55,24 @@ export function getEntriesFromSearch(search: string, entries: Entry[]) {
     entries.filter((entry) => {
       let match = false;
 
-      searchable.forEach((key) => {
+      for (const key of searchable) {
         if (entry[key].toLowerCase().includes(query)) {
           match = true;
         }
-      });
+      }
 
       return match;
-    })
+    }),
   );
 }
 
-export function getEntriesInThisBuilding(entry: Entry, entries: Entry[]): Entry[] {
-  return entries.filter(({ parent_building }) => parent_building === entry.entry_id);
+export function getEntriesInThisBuilding(
+  entry: Entry,
+  entries: Entry[],
+): Entry[] {
+  return entries.filter(
+    ({ parent_building }) => parent_building === entry.entry_id,
+  );
 }
 
 export function getCoverImageUrl(image?: string): string {
@@ -77,7 +95,9 @@ export function getGalleryImages(entry: Entry): string[] {
     "image_4_optional",
   ] as const;
 
-  return properties.map((property) => entry[property]).filter((image) => image.length > 0);
+  return properties
+    .map((property) => entry[property])
+    .filter((image) => image.length > 0);
 }
 
 export function setPageTitle(title?: string): void {

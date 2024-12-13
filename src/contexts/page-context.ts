@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Entry } from "../types";
+import type { Entry } from "../types";
 
 type ContextState = {
   isNavigationExpanded: boolean;

@@ -1,8 +1,8 @@
 import { type ReactNode, useState } from "react";
+import { SIDEBAR_EXPANDED } from "../constants";
 import pageContext from "../contexts/page-context";
 import useData from "../hooks/use-data";
-import { SIDEBAR_EXPANDED } from "../constants";
-import { Entry } from "../types";
+import type { Entry } from "../types";
 
 type Props = {
   children: ReactNode;
@@ -10,7 +10,7 @@ type Props = {
 
 export default function PageContextProvider({ children }: Props) {
   const { data, loading, error } = useData<{ items: Entry[] }>(
-    "https://cascade.messiah.edu/campus-map/_data/campus-map.json"
+    "https://cascade.messiah.edu/campus-map/_data/campus-map.json",
   );
   const [isNavigationExpanded, setIsNavigationExpanded] = useState(() => {
     const state = localStorage.getItem(SIDEBAR_EXPANDED);
@@ -29,7 +29,8 @@ export default function PageContextProvider({ children }: Props) {
         entries: data ? data.items : [],
         loading,
         error,
-        toggleNavigation: () => setIsNavigationExpanded((previousState) => !previousState),
+        toggleNavigation: () =>
+          setIsNavigationExpanded((previousState) => !previousState),
       }}
     >
       {children}

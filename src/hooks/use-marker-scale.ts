@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 const MIN_ZOOM = 16 as const;
 const MAX_ZOOM = 20 as const;
 
-function convert(zoom: number = 18) {
+function convert(zoom = 18) {
   return ((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * 100;
 }
 

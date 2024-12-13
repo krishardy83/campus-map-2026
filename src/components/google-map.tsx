@@ -67,7 +67,12 @@ export default memo(function GoogleMap() {
           onClick={() => navigate(marker.shortcut)}
           title={marker.title}
         >
-          <Pin scale={1.5} background="#00698B" borderColor="#fff" glyphColor="#fff">
+          <Pin
+            scale={1.5}
+            background="#00698B"
+            borderColor="#fff"
+            glyphColor="#fff"
+          >
             <StarIcon className="w-6 h-6" />
           </Pin>
         </AdvancedMarker>

@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 
 export default function useData<T>(url: string) {
-  const [state, setState] = useState<{ data: T | null; error: boolean; loading: boolean }>({
+  const [state, setState] = useState<{
+    data: T | null;
+    error: boolean;
+    loading: boolean;
+  }>({
     data: null,
     error: false,
     loading: false,

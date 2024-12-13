@@ -61,14 +61,16 @@ export default function SearchForm() {
                     className={({ focus }) =>
                       clsx(
                         "px-4 py-2 block border-b border-gray-200 transition-colors hover:bg-calypso-800/10 group cursor-pointer",
-                        { "bg-calypso-800/10": focus }
+                        { "bg-calypso-800/10": focus },
                       )
                     }
                   >
                     <span className="font-bold block group-hover:text-calypso-800 transition-colors">
                       {result.entry_title}
                     </span>
-                    <span className="text-sm text-gray-500">{result.category_name}</span>
+                    <span className="text-sm text-gray-500">
+                      {result.category_name}
+                    </span>
                   </ComboboxOption>
                 ))
               )}

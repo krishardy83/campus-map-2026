@@ -1,4 +1,8 @@
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import type { Entry } from "../types";
@@ -14,7 +18,10 @@ const mq = window.matchMedia("(max-width: 640px)");
 export default function CategorySection({ category, entries }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { toggleNavigation } = usePageContext();
-  const hasActiveMarker = searchParams.get("markers")?.split(",").includes(category);
+  const hasActiveMarker = searchParams
+    .get("markers")
+    ?.split(",")
+    .includes(category);
 
   function handleToggleAll() {
     const params = Object.fromEntries(searchParams.entries());
@@ -23,14 +30,19 @@ export default function CategorySection({ category, entries }: Props) {
     if (previous.includes(category)) {
       setSearchParams({
         ...params,
-        markers: previous.filter((marker) => marker !== category && marker.length > 0),
+        markers: previous.filter(
+          (marker) => marker !== category && marker.length > 0,
+        ),
       });
     } else {
       if (mq.matches) {
         toggleNavigation();
       }
 
-      setSearchParams({ ...params, markers: [...previous, category].join(",") });
+      setSearchParams({
+        ...params,
+        markers: [...previous, category].join(","),
+      });
     }
   }
 
