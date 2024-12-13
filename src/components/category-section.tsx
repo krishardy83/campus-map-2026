@@ -3,10 +3,10 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { Link, useSearchParams } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import type { Entry } from "../types";
+import { Link, useSearchParams } from "react-router-dom";
 import usePageContext from "../hooks/use-page-context";
+import type { Entry } from "../types";
 
 type Props = {
   category: string;

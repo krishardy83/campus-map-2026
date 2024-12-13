@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Combobox,
   ComboboxInput,
@@ -8,8 +6,10 @@ import {
   Transition,
 } from "@headlessui/react";
 import clsx from "clsx";
-import { getEntriesFromSearch, getEntryByShortcut } from "../lib/utils";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import usePageContext from "../hooks/use-page-context";
+import { getEntriesFromSearch, getEntryByShortcut } from "../lib/utils";
 
 export default function SearchForm() {
   const { entries } = usePageContext();

@@ -1,6 +1,6 @@
-import { getCategories, setPageTitle } from "../lib/utils";
 import CategoryGroup from "../components/category-group";
 import usePageContext from "../hooks/use-page-context";
+import { getCategories, setPageTitle } from "../lib/utils";
 
 const visitorQuickLinks = [
   "Admissions",

@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import { AdvancedMarker, Map, Pin, useMap } from "@vis.gl/react-google-maps";
 import { StarIcon } from "@heroicons/react/24/solid";
-import useMapOverlay from "../hooks/use-map-overlay";
-import useMapMarkers from "../hooks/use-map-markers";
-import useTextMarkers from "../hooks/use-text-markers";
-import usePageContext from "../hooks/use-page-context";
+import { AdvancedMarker, Map, Pin, useMap } from "@vis.gl/react-google-maps";
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
+import useMapMarkers from "../hooks/use-map-markers";
+import useMapOverlay from "../hooks/use-map-overlay";
+import usePageContext from "../hooks/use-page-context";
+import useTextMarkers from "../hooks/use-text-markers";
 
 const INITIAL_CAMERA = {
   center: { lat: 40.157204, lng: -76.988973 },

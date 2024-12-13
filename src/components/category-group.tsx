@@ -1,6 +1,6 @@
-import CategorySection from "./category-section";
-import { getEntriesForCategory } from "../lib/utils";
 import usePageContext from "../hooks/use-page-context";
+import { getEntriesForCategory } from "../lib/utils";
+import CategorySection from "./category-section";
 import Skeleton from "./skeleton";
 
 type Props = {
