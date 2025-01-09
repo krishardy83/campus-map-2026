@@ -109,3 +109,13 @@ export function setPageTitle(title?: string): void {
     document.title = base;
   }
 }
+
+export function getBasepath() {
+  const path = window.location.pathname;
+
+  if (path === "/") {
+    return;
+  }
+
+  return path;
+}
