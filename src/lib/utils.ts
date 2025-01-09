@@ -77,7 +77,7 @@ export function getEntriesInThisBuilding(
 
 export function getCoverImageUrl(image?: string): string {
   if (image) {
-    return `http://www.messiah.edu/images/${image}`;
+    return image;
   }
 
   return "./images/location-image-placeholder.png";
