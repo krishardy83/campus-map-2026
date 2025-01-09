@@ -44,7 +44,7 @@ export default function Entry() {
 
           <button
             type="button"
-            onClick={() => navigate("/")}
+            onClick={() => navigate(-1)}
             className="text-calypso-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
           >
             <ArrowLeftIcon className="w-5 h-5" />
@@ -73,7 +73,7 @@ export default function Entry() {
       >
         <button
           type="button"
-          onClick={() => navigate("/")}
+          onClick={() => navigate(-1)}
           className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
         >
           <ArrowLeftIcon className="w-8 h-8 mb-1" />
@@ -137,7 +137,7 @@ export default function Entry() {
         <div className="flex items-center gap-x-8 gap-y-4 flex-wrap mt-6 ">
           <button
             type="button"
-            onClick={() => navigate("/")}
+            onClick={() => navigate(-1)}
             className="text-calypso-800 uppercase font-bold text-sm inline-flex items-center gap-2"
           >
             <ArrowLeftIcon className="w-5 h-5" />
