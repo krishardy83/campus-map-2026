@@ -1,7 +1,7 @@
 import { APIProvider } from "@vis.gl/react-google-maps";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createHashRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { GOOGLE_API_KEY } from "./constants";
 import PageContextProvider from "./providers/page-context";
 import Entry from "./routes/entry.tsx";
@@ -9,7 +9,7 @@ import Overview from "./routes/overview.tsx";
 import Root from "./routes/root.tsx";
 import "./index.css";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
