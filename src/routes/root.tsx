@@ -40,7 +40,7 @@ export default function Root() {
 
         <div className="overflow-y-auto">
           <img
-            src="/logo.svg"
+            src="./logo.svg"
             alt="Messiah Univerity Logo"
             width="236px"
             height="63px"

@@ -80,7 +80,7 @@ export function getCoverImageUrl(image?: string): string {
     return `http://www.messiah.edu/images/${image}`;
   }
 
-  return "/images/location-image-placeholder.png";
+  return "./images/location-image-placeholder.png";
 }
 
 export function getGoogleMapsUrl(coordinates: string): string {
