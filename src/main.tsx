@@ -10,7 +10,7 @@ import Root from "./routes/root.tsx";
 import "./index.css";
 
 const basename = import.meta.env.VITE_BASE_PATH || undefined;
-console.log(basename);
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement).render(
   <React.StrictMode>
     <APIProvider apiKey={GOOGLE_API_KEY}>
