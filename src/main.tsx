@@ -8,13 +8,14 @@ import Entry from "./routes/entry.tsx";
 import Overview from "./routes/overview.tsx";
 import Root from "./routes/root.tsx";
 import "./index.css";
-import { getBasepath } from "./lib/utils.ts";
 
+const basename = import.meta.env.VITE_BASE_PATH || undefined;
+console.log(basename);
 ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement).render(
   <React.StrictMode>
     <APIProvider apiKey={GOOGLE_API_KEY}>
       <PageContextProvider>
-        <BrowserRouter basename={getBasepath()}>
+        <BrowserRouter basename={basename}>
           <Routes>
             <Route element={<Root />}>
               <Route index element={<Overview />} />
