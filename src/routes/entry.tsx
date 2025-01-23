@@ -4,7 +4,7 @@ import {
   GlobeAltIcon,
   MapPinIcon,
 } from "@heroicons/react/24/outline";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Gallery from "../components/gallery";
 import usePageContext from "../hooks/use-page-context";
 import {
@@ -18,7 +18,6 @@ import {
 
 export default function Entry() {
   const { shortcut } = useParams();
-  const navigate = useNavigate();
   const { toggleNavigation, entries } = usePageContext();
 
   const entry = getEntryByShortcut(entries, shortcut);
@@ -42,14 +41,13 @@ export default function Entry() {
           </h1>
           <p>The entry you are looking for doesn't exist.</p>
 
-          <button
-            type="button"
-            onClick={() => navigate(-1)}
+          <Link
+            to="/"
             className="text-calypso-800 uppercase font-bold text-sm mt-6 inline-flex items-center gap-2"
           >
             <ArrowLeftIcon className="w-5 h-5" />
             Back to overview
-          </button>
+          </Link>
         </div>
       </div>
     );
@@ -71,14 +69,13 @@ export default function Entry() {
         className="border-b border-gray-200 py-4 px-6 flex justify-center"
         aria-label="main navigation"
       >
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
+        <Link
+          to="/"
           className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
         >
           <ArrowLeftIcon className="w-8 h-8 mb-1" />
           Overview
-        </button>
+        </Link>
         <a
           href={getGoogleMapsUrl(entry.location)}
           target="_blank"
@@ -135,14 +132,13 @@ export default function Entry() {
         ) : null}
 
         <div className="flex items-center gap-x-8 gap-y-4 flex-wrap mt-6 ">
-          <button
-            type="button"
-            onClick={() => navigate(-1)}
+          <Link
+            to="/"
             className="text-calypso-800 uppercase font-bold text-sm inline-flex items-center gap-2"
           >
             <ArrowLeftIcon className="w-5 h-5" />
             Back to overview
-          </button>
+          </Link>
 
           <button
             type="button"
