@@ -68,20 +68,20 @@ export default function CategorySection({ category, entries }: Props) {
         <>
           <DisclosureButton
             onClick={() => handleValueChange(category, open)}
-            className="group flex w-full items-center justify-between text-calypso-800 cursor-pointer py-3 outline-none focus-visible:outline-2 focus-visible:outline-calypso-800 rounded-md focus-visible:-outline-offset-2"
+            className="group flex w-full items-center justify-between text-calypso-800 cursor-pointer py-3 outline-hidden focus-visible:outline-2 focus-visible:outline-calypso-800 rounded-md focus-visible:-outline-offset-2"
           >
             {category}
 
-            <ChevronDownIcon className="w-5 h-5 group-data-[open]:rotate-180 transition-transform duration-300" />
+            <ChevronDownIcon className="w-5 h-5 group-data-open:rotate-180 transition-transform duration-300" />
           </DisclosureButton>
           <DisclosurePanel
             transition
-            className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 overflow-hidden"
+            className="origin-top transition duration-200 ease-out data-closed:-translate-y-6 data-closed:opacity-0 overflow-hidden"
           >
             <button
               type="button"
               onClick={handleToggleAll}
-              className="uppercase font-bold text-sm text-calypso-800 px-4 py-2 hover:bg-calypso-800/10 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-calypso-800 rounded-md   w-full text-left transition-colors"
+              className="uppercase font-bold text-sm text-calypso-800 px-4 py-2 hover:bg-calypso-800/10 outline-hidden focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-calypso-800 rounded-md   w-full text-left transition-colors"
             >
               {hasActiveMarker ? "Hide" : "Show"} all
             </button>
@@ -90,7 +90,7 @@ export default function CategorySection({ category, entries }: Props) {
               {entries.map((entry) => (
                 <li key={entry.entry_id}>
                   <Link
-                    className="text-calypso-800 text-sm block px-4 py-2 hover:bg-calypso-800/10 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 transition-colors focus-visible:outline-calypso-800 rounded-md  "
+                    className="text-calypso-800 text-sm block px-4 py-2 hover:bg-calypso-800/10 outline-hidden focus-visible:outline-2 focus-visible:-outline-offset-2 transition-colors focus-visible:outline-calypso-800 rounded-md  "
                     to={`/${entry.shortcut}`}
                   >
                     {entry.entry_title}

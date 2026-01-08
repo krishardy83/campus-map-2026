@@ -15,14 +15,14 @@ export default function Root() {
 
       <div
         className={clsx(
-          "fixed bg-white z-10 w-full max-w-md h-dvh before:h-3 before:shrink-0 before:bg-gradient-to-r before:from-calypso-800 before:to-victoria-800 before:top-0 flex flex-col transition-transform duration-300 ease-in-out",
+          "fixed bg-white z-10 w-full max-w-md h-dvh before:h-3 before:shrink-0 before:bg-linear-to-r before:from-calypso-800 before:to-victoria-800 before:top-0 flex flex-col transition-transform duration-300 ease-in-out",
           { "-translate-x-full": !isNavigationExpanded },
         )}
       >
         <button
           type="button"
           className={clsx(
-            "absolute sm:-right-12 text-gray-600 bg-white shadow-md sm:shadow-sm p-2 sm:top-2.5 rounded-sm transition-transform duration-300 ease-in-out z-10",
+            "absolute sm:-right-12 text-gray-600 bg-white shadow-md sm:shadow-xs p-2 sm:top-2.5 rounded-xs transition-transform duration-300 ease-in-out z-10",
             {
               "right-2 top-6": isNavigationExpanded,
               "top-2.5 -right-12": !isNavigationExpanded,

@@ -1,49 +1,105 @@
-@font-face {
-  font-family: Aptifer Sans;
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/aptifer-sans-regular.woff2) format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
-    U+2074, U+20AC, U+2122, U+2212, U+2215;
-  font-display: swap;
+@import "tailwindcss";
+
+@theme {
+  --font-serif:
+    Priori Sans, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans:
+    Aptifer Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-calypso-50: #f4f6fb;
+  --color-calypso-100: #e8ecf6;
+  --color-calypso-200: #ccd8eb;
+  --color-calypso-300: #9fb8da;
+  --color-calypso-400: #6c93c4;
+  --color-calypso-500: #4976ae;
+  --color-calypso-600: #375c92;
+  --color-calypso-700: #2e4b76;
+  --color-calypso-800: #273d5e;
+  --color-calypso-900: #263754;
+  --color-calypso-950: #1a2437;
+
+  --color-victoria-50: #f9f7fd;
+  --color-victoria-100: #f1edfa;
+  --color-victoria-200: #e4def6;
+  --color-victoria-300: #d0c4ee;
+  --color-victoria-400: #b39fe1;
+  --color-victoria-500: #9679d3;
+  --color-victoria-600: #7e5cc1;
+  --color-victoria-700: #6948a8;
+  --color-victoria-800: #614495;
+  --color-victoria-900: #4a346f;
+  --color-victoria-950: #2f1c4f;
+
+  --animate-slide-down: side-down 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  --animate-slide-up: slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1);
+
+  @keyframes side-down {
+    from {
+      height: 0px;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes slide-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0px;
+    }
+  }
 }
 
-@font-face {
-  font-family: Aptifer Sans;
-  font-style: normal;
-  font-weight: 700;
-  src: url(/fonts/aptifer-sans-bold.woff2) format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
-    U+2074, U+20AC, U+2122, U+2212, U+2215;
-  font-display: swap;
-}
+@layer base {
+  @font-face {
+    font-family: Aptifer Sans;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/aptifer-sans-regular.woff2) format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: Priori Sans;
-  font-style: normal;
-  font-weight: 700;
-  src: local("Priori Sans Bold"), local("PrioriSanBold"),
-    url(/fonts/priori-sans-bold.woff2) format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
-    U+2074, U+20AC, U+2122, U+2212, U+2215;
-  font-display: swap;
-}
+  @font-face {
+    font-family: Aptifer Sans;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/aptifer-sans-bold.woff2) format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: Priori Sans;
-  font-style: normal;
-  font-weight: 500;
-  src: local("Priori Sans Medium"), local("PrioriSanRegular"),
-    url(/fonts/priori-sans-medium.woff2) format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
-    U+2074, U+20AC, U+2122, U+2212, U+2215;
-  font-display: swap;
-}
+  @font-face {
+    font-family: Priori Sans;
+    font-style: normal;
+    font-weight: 700;
+    src:
+      local("Priori Sans Bold"),
+      local("PrioriSanBold"),
+      url(/fonts/priori-sans-bold.woff2) format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+    font-display: swap;
+  }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @font-face {
+    font-family: Priori Sans;
+    font-style: normal;
+    font-weight: 500;
+    src:
+      local("Priori Sans Medium"),
+      local("PrioriSanRegular"),
+      url(/fonts/priori-sans-medium.woff2) format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+    font-display: swap;
+  }
+}

@@ -54,7 +54,7 @@ export default memo(function GoogleMap() {
           collisionBehavior="OPTIONAL_AND_HIDES_LOWER_PRIORITY"
           className="relative top-5"
         >
-          <p className="text-white text-base [text-shadow:_2px_2px_1px_rgb(0_0_0_/_50%)] font-bold">
+          <p className="text-white text-base [text-shadow:2px_2px_1px_rgb(0_0_0/50%)] font-bold">
             {marker.name}
           </p>
         </AdvancedMarker>

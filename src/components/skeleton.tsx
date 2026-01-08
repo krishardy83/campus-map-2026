@@ -9,7 +9,7 @@ export default function Skeleton({ className, ...props }: Props) {
       {...props}
       aria-hidden="true"
       className={clsx(
-        "animate-pulse bg-gray-200 h-5 rounded-sm flex",
+        "animate-pulse bg-gray-200 h-5 rounded-xs flex",
         className,
       )}
     />

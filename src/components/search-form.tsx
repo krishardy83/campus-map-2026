@@ -35,7 +35,7 @@ export default function SearchForm() {
             type="search"
             placeholder="Search"
             aria-label="Search campus site"
-            className="rounded-md h-12 border px-4 placeholder:text-calypso-800 placeholder:uppercase border-gray-200 focus-visible:border-calypso-800 w-full outline-none focus:shadow-lg focus:shadow-calypso-800/10 transition-all"
+            className="rounded-md h-12 border px-4 placeholder:text-calypso-800 placeholder:uppercase border-gray-200 focus-visible:border-calypso-800 w-full outline-hidden focus:shadow-lg focus:shadow-calypso-800/10 transition-all"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
