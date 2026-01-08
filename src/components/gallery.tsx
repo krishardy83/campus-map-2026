@@ -22,7 +22,7 @@ export default function Gallery({ images, title }: Props) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex flex-col items-center focus-visible:outline-offset-0 outline-hidden focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
+        className="inline-flex cursor-pointer flex-col items-center focus-visible:outline-offset-0 outline-hidden focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-calypso-800 text-calypso-800 text-xs sm:text-sm transition-colors hover:bg-calypso-800/10 px-4 rounded-md py-1"
       >
         <PhotoIcon className="w-8 h-8 mb-1" />
         Photo Gallery
@@ -57,7 +57,7 @@ export default function Gallery({ images, title }: Props) {
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="text-calypso-800 rounded-xs hover:bg-calypso-800/10 p-1 transition-colors outline-hidden focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:outline-offset-0"
+                    className="text-calypso-800 cursor-pointer hover:bg-calypso-800/10 p-1 transition-colors outline-hidden focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:outline-offset-0 rounded-md"
                     aria-label="close gallery"
                   >
                     <XMarkIcon className="w-8 h-8" />
@@ -66,7 +66,7 @@ export default function Gallery({ images, title }: Props) {
 
                 <figure className="mb-2 sm:mb-4">
                   <img
-                    src={`https://messiah.edu/images/${activeImage}`}
+                    src={activeImage}
                     alt={`image of ${title}`}
                     width="1400"
                     height="830"
@@ -81,10 +81,10 @@ export default function Gallery({ images, title }: Props) {
                       type="button"
                       onClick={() => setActiveImage(image)}
                       aria-label={`show image ${index + 1}`}
-                      className="flex-1 outline-hidden hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:opacity-90"
+                      className="cursor-pointer flex-1 outline-hidden hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-calypso-800 focus-visible:opacity-90"
                     >
                       <img
-                        src={`https://messiah.edu/images/${image}`}
+                        src={image}
                         alt={`image ${index + 1} of ${images.length}`}
                         width="360"
                         height="200"
