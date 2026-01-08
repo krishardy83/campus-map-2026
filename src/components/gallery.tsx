@@ -49,7 +49,7 @@ export default function Gallery({ images, title }: Props) {
             leaveTo="opacity-0 scale-95"
           >
             <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-              <DialogPanel className="sm:w-4/5 bg-white p-4 shadow-xl">
+              <DialogPanel className="sm:w-4/5 bg-white p-4 shadow-xl max-h-[95dvh] max-w-[95vw] overflow-y-auto">
                 <div className="flex items-center justify-between mb-4">
                   <DialogTitle className="font-serif font-bold text-calypso-800 text-2xl sm:text-3xl">
                     {title}
