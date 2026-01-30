@@ -44,7 +44,7 @@ export default function useMapOverlay() {
           return null;
         }
 
-        return `./tiles/${zoom}/tile_${coords.x}x${coords.y}-min.png`;
+        return `./tiles/${zoom}/tile_${coords.x}x${coords.y}.webp`;
       },
       tileSize: new google.maps.Size(256, 256),
     });
