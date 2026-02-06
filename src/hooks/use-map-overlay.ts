@@ -1,5 +1,7 @@
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 
+const basename = import.meta.env.VITE_BASE_PATH;
+
 const BOUNDS: { [key: number]: [[number, number], [number, number]] } = {
   15: [
     [9375, 9377],
@@ -44,7 +46,7 @@ export default function useMapOverlay() {
           return null;
         }
 
-        return `./tiles/${zoom}/tile_${coords.x}x${coords.y}.webp`;
+        return `${location.origin}${basename}/tiles/${zoom}/tile_${coords.x}x${coords.y}.webp`;
       },
       tileSize: new google.maps.Size(256, 256),
     });
